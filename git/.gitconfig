@@ -1,0 +1,7 @@
+[alias]
+	s = status
+	d = diff
+	ds = diff --staged
+[user]
+	name = Maximilian Moser
+	email = maximilian.moser@tuwien.ac.at
