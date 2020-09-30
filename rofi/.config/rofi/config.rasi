@@ -1,0 +1,6 @@
+configuration {
+	modi: "drun,window,combi,run";
+	font: "Cascadia Code 10";
+}
+
+@import "themes/gruvbox-dark-soft.rasi"
