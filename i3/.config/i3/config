@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# merge the values from .Xresources
+exec_always --no-startup-id xrdb -merge $HOME/.Xresources
+
 # start a composite manager to avoid tearing, etc.
 exec --no-startup-id picom -b
 
