@@ -1,15 +1,12 @@
 * {
     backgroundcolor: #2e3440;
-    bg1: #3b4252;
     backgroundcoloralternate: #2e3440;
     separatorcolor: #3b4252;
-    scrollbarcolor: #3b4252;
+    scrollbarcolor: #434c5e;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
     selectioncolor: #3b4252;
-
-
-    font-size: 1px;
+    font-size: 1em;
     border-color: @separatorcolor;
     background-color: @backgroundcolor;
     text-color: @foregroundcolor;
@@ -24,14 +21,13 @@
     scrollbar: true;
     margin: 0;
     dynamic: true;
-
 }
 
 #window {
     background-color: @backgroundcolor;
     border-color: @separatorcolor;
-    border: 1;
-    border-radius: 2px;
+    border: 1px;
+    border-radius: 5px;
 }
 
 #mainbox {
@@ -41,7 +37,7 @@
 }
 
 #element {
-    padding: 16;
+    padding: 0.3em;
     border: 0 0 1 0;
     border-color: @separatorcolor;
     background-color: @backgroundcoloralternate;
@@ -50,8 +46,7 @@
 #element.selected.normal {
     background-color: @selectioncolor;
     text-color: @foregroundcolorinverse;
-    border-radius: 0px;
-
+    border-radius: 0;
     border: 0 0 1 0;
     border-color: @separatorcolor;
 }
@@ -71,8 +66,7 @@
 #element.selected.active {
     background-color: @selectioncolor;
     text-color: @foregroundcolorinverse;
-    border-radius: 0px;
-
+    border-radius: 0;
     border: 0 0 1 0;
     border-color: @separatorcolor;
 }
@@ -85,25 +79,20 @@
 }
 
 #prompt {
-    padding: 16;
+    padding: 0.5em;
     background-color: @backgroundcoloralternate;
     border: 0 1 0 0;
 }
 
 #entry {
-    padding: 16;
+    padding: 0.5em;
 }
 
 #scrollbar {
     border: 0;
-    width: 8px;
+    width: 0.5em;
     handle-color: @scrollbarcolor;
-    handle-width: 8px;
+    handle-width: 0.5em;
     background-color: @backgroundcoloralternate;
-}
-
-#scrollbar handle {
-    border: 1px;
-    border-color: #ff0000;
 }
 
