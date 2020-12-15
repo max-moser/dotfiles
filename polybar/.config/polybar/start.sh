@@ -18,7 +18,7 @@ done
 
 if [[ -z $(pgrep -x polybar) ]]; then
 	for m in $(polybar --list-monitors | cut -d ":" -f 1); do
-		monitor=$m polybar --reload $bar &
+		MONITOR=$m polybar --reload $bar &
 		sleep 0.1
 	done
 
