@@ -17,15 +17,14 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #1D1F21
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = ${xrdb:nord0:#222}
+background-alt = ${xrdb:nord1:#333}
+foreground = ${xrdb:nord4:#222}
+foreground-alt = ${xrdb:nord5:#000}
+separator = ${xrdb:separator:#f00}
+primary = ${xrdb:nord15:#0ff}
+secondary = ${xrdb:nord13:#ff0}
+alert = ${xrdb:nord12:#f00}
 
 [bar/max]
 monitor = ${env:MONITOR:}

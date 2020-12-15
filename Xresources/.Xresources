@@ -16,43 +16,67 @@ Xft.lcdfilter:  lcddefault
 ! Repository: https://github.com/arcticicestudio/nord-xresources
 ! License:    MIT
 
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
+! polar night
+#define NORD0 #2E3440
+#define NORD1 #3B4252
+#define NORD2 #434C5E
+#define NORD3 #4C566A
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
+! snow storm
+#define NORD4 #D8DEE9
+#define NORD5 #E5E9F0
+#define NORD6 #ECEFF4
+
+! frost
+#define NORD7 #8FBCBB
+#define NORD8 #88C0D0
+#define NORD9 #81A1C1
+#define NORD10 #5E81AC
+
+! aurora
+#define NORD11 #BF616A
+#define NORD12 #D08770
+#define NORD13 #EBCB8B
+#define NORD14 #A3BE8C
+#define NORD15 #B48EAD
+
+*foreground:   NORD4
+*background:   NORD0
+*cursorColor:  NORD4
 *fading:    35
-*fadeColor: nord3
+*fadeColor: NORD3
 
-*.color0:  nord1
-*.color1:  nord11
-*.color2:  nord14
-*.color3:  nord13
-*.color4:  nord9
-*.color5:  nord15
-*.color6:  nord8
-*.color7:  nord5
-*.color8:  nord3
-*.color9:  nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+*.color0:  NORD1
+*.color1:  NORD11
+*.color2:  NORD14
+*.color3:  NORD13
+*.color4:  NORD9
+*.color5:  NORD15
+*.color6:  NORD8
+*.color7:  NORD5
+*.color8:  NORD3
+*.color9:  NORD11
+*.color10: NORD14
+*.color11: NORD13
+*.color12: NORD9
+*.color13: NORD15
+*.color14: NORD7
+*.color15: NORD6
+
+*.nord0:  NORD0
+*.nord1:  NORD1
+*.nord2:  NORD2
+*.nord3:  NORD3
+*.nord4:  NORD4
+*.nord5:  NORD5
+*.nord6:  NORD6
+*.nord7:  NORD7
+*.nord8:  NORD8
+*.nord9:  NORD9
+*.nord10: NORD10
+*.nord11: NORD11
+*.nord12: NORD12
+*.nord13: NORD13
+*.nord14: NORD14
+*.nord15: NORD15
 

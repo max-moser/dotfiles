@@ -264,27 +264,44 @@ bindsym $mod+r mode "resize"
 #         #status_command "while 1; do date; sleep 1; done"
 # }
 
-# Colors set from ~/.Xresources
-set $platinum #e7e7e7
-set $eerie #1D1F21
-set $gainsboro #cddddd
-set $sonic #707880
-set $davys #484d51
-set $nickel #727d7b
 
 # Polybar launch script (located ~/.config/polybar/launch.sh)
 exec_always --no-startup-id $HOME/.config/polybar/start.sh
 
+# Colors set from ~/.Xresources
+# polar night
+set_from_resource  $nord0   i3wm.nord0   #2E3440
+set_from_resource  $nord1   i3wm.nord1   #3B4252
+set_from_resource  $nord2   i3wm.nord2   #434C5E
+set_from_resource  $nord3   i3wm.nord3   #4C566A
+
+# snow storm
+set_from_resource  $nord4   i3wm.nord4   #D8DEE9
+set_from_resource  $nord5   i3wm.nord5   #E5E9F0
+set_from_resource  $nord6   i3wm.nord6   #ECEFF4
+
+# frost
+set_from_resource  $nord7   i3wm.nord7   #8FBCBB  # frozen water
+set_from_resource  $nord8   i3wm.nord8   #88C0D0  # pure ice
+set_from_resource  $nord9   i3wm.nord9   #81A1C1  # water
+set_from_resource  $nord10  i3wm.nord10  #5E81AC  # ocean
+
+# aurora
+set_from_resource  $nord11  i3wm.nord11  #BF616A  # red    - errors
+set_from_resource  $nord12  i3wm.nord12  #D08770  # orange - warning
+set_from_resource  $nord13  i3wm.nord13  #EBCB8B  # yellow - info
+set_from_resource  $nord14  i3wm.nord14  #A3BE8C  # green  - success
+set_from_resource  $nord15  i3wm.nord15  #B48EAD  # purple - other
+
+# Theme colors
+# class                  border    backg.    text      indic.     child_border
+client.focused           $nord1    $nord3    $nord6    $nord9     $nord3
+client.focused_inactive  $nord1    $nord0    $nord4    $nord10    $nord0
+client.unfocused         $nord1    $nord0    $nord4    $nord10    $nord0
+client.urgent            $nord12   $nord12   $nord5    $nord13    $nord12
+client.placeholder       $nord1    $nord0    $nord4    $nord10    $nord0
+client.background                  $nord0
 
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle
-
-# Theme colors
-# class                 border      backgr.     text        indic.      child_border
-client.focused          $sonic      $davys      $gainsboro  $sonic      $sonic
-client.unfocused        $eerie      $eerie      $nickel     $eerie      $eerie
-client.focused_inactive $eerie      $eerie      $nickel     $eerie      $eerie
-client.urgent           $platinum   $eerie      $platinum   $eerie      $eerie
-client.placeholder      $platinum   $eerie      $platinum   $eerie      $eerie
-client.background       $eerie
 
