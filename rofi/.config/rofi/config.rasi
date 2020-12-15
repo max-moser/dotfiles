@@ -3,4 +3,4 @@ configuration {
 	font: "Cascadia Code 10";
 }
 
-@import "themes/gruvbox-dark-soft.rasi"
+@import "themes/nord.rasi"
