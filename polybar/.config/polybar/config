@@ -188,7 +188,7 @@ bar-fill-font = 2
 bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${colors.background-alt}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -291,7 +291,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.background-alt}
 
 [module/alsa]
 type = internal/alsa
@@ -319,7 +319,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = #
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.background-alt}
 
 [module/battery]
 type = internal/battery
