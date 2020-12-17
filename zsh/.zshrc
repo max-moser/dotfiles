@@ -103,8 +103,9 @@ alias xopen="xdg-open"
 alias pdb="python -m pdb"
 alias pish="pipenv shell"
 alias penv="pipenv"
-# alias black="black --config ~/.config/black.toml"
 export EDITOR="nvim"
 
-# eval "$(pyenv init -)"
+if type pyenv > /dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
 
