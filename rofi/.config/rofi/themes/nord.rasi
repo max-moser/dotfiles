@@ -2,6 +2,7 @@
     backgroundcolor: #2e3440;
     backgroundcoloralternate: #2e3440;
     separatorcolor: #3b4252;
+    bordercolor: #434c5e;
     scrollbarcolor: #434c5e;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
@@ -25,9 +26,9 @@
 
 #window {
     background-color: @backgroundcolor;
-    border-color: @separatorcolor;
-    border: 1px;
-    border-radius: 5px;
+    border-color: @bordercolor;
+    border: 2px;
+    border-radius: 8px;
 }
 
 #mainbox {
