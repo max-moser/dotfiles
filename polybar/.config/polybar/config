@@ -49,7 +49,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 0
+padding-right = 4
 
 module-margin-left = 1
 module-margin-right = 2
@@ -72,6 +72,10 @@ tray-background = ${colors.background}
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+override-redirect = false
+wm-restack = i3
+wm-name = i3
+
 
 [module/xwindow]
 type = internal/xwindow
@@ -81,18 +85,37 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
+format = <label-layout>  <label-indicator>
 format-prefix = "🌍 "
 format-prefix-foreground = ${colors.foreground-alt}
-label-layout = %icon%
 
+label-layout = %icon%
 layout-icon-default =
 layout-icon-0 = us;US
 layout-icon-1 = de;DE
 layout-icon-2 = at;AT
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
+indicator-icon-default = %name%
+label-indicator-on = %name%
+label-indicator-off =
+
+label-indicator-on-capslock = "CAPS"
+label-indicator-off-capslock =
+label-indicator-on-capslock-background = ${colors.error}
+label-indicator-on-capslock-padding = 1
+
+label-indicator-on-numlock = "NUM"
+label-indicator-off-numlock =
+label-indicator-on-numlock-foreground = ${colors.background-alt}
+label-indicator-on-numlock-background = ${colors.ok}
+label-indicator-on-numlock-padding = 1
+
+label-indicator-on-scrolllock = "SCRL"
+label-indicator-off-scrolllock =
+label-indicator-on-scrolllock-foreground = ${colors.background-alt}
+label-indicator-on-scrolllock-background = ${colors.extra}
+label-indicator-on-scrolllock-padding = 1
+
 
 
 [module/filesystem]
