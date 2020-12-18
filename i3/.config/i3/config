@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# execute setup scripts for monitors
+exec --no-startup-id $HOME/.config/i3/bin/setup-monitors.sh
+
 # merge the values from .Xresources
 exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 
