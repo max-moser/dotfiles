@@ -76,6 +76,15 @@ bindsym Ctrl+$mod+t exec $terminal
 # start the file explorer
 bindsym $win+e exec $explorer
 
+# screenshots
+# TODO: 'print' key detection doesn't seem to work in combination with 'alt' or 'shift'
+bindsym Print exec $HOME/.config/i3/bin/screenshot.sh
+bindsym Ctrl+Print exec $HOME/.config/i3/bin/screenshot.sh -c
+bindsym Shift+Print exec $HOME/.config/i3/bin/screenshot.sh -i
+bindsym Ctrl+Shift+Print exec $HOME/.config/i3/bin/screenshot.sh -ci
+bindsym $mod+Print exec $HOME/.config/i3/bin/screenshot.sh -f
+bindsym $win+Print exec $HOME/.config/i3/bin/screenshot.sh -f
+
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym Ctrl+Shift+q kill
