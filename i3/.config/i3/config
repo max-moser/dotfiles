@@ -24,6 +24,9 @@ set $terminal alacritty
 set $explorer nemo
 set $notifd dunst
 
+# set background image
+exec --no-startup-id $HOME/.fehbg
+
 # start the notification daemon -- without one, there may be issues (e.g. Rambox hanging)
 exec --no-startup-id $notifd
 
