@@ -22,7 +22,7 @@ done
 
 line_style='style=dash,color=red,width=2'
 file_name='%Y-%m-%d-%s_screenshot_$wx$h.png'
-clip_cmd='xclip -t image/png -selection clipboard $f && shred -u $f'
+clip_cmd='xclip -t image/png -selection clipboard $f; shred -u $f'
 mv_cmd='mv $f $$HOME/Pictures/'
 
 if [[ $fancy -gt 0 ]]; then
