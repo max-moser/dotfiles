@@ -18,6 +18,9 @@ exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 # start a composite manager to avoid tearing, etc.
 exec --no-startup-id picom -b
 
+# configure mouse (disable acceleration and set speed)
+exec --no-startup-id $HOME/.config/i3/bin/mouse.sh
+
 set $mod Mod1
 set $win Mod4
 set $terminal alacritty
