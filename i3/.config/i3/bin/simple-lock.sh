@@ -3,8 +3,13 @@
 colour=000000
 screenshot=0
 image_file=
-while getopts "c:i:s" opt; do
+cursor_opt=
+image_opt=
+while getopts "c:i:sC" opt; do
 	case $opt in
+		C)
+			cursor_opt="-p default"
+			;;
 		c)
 			colour=$OPTARG
 			if ! [[ $colour =~ ^[0-9a-f]{6}$ ]] ; then
@@ -42,11 +47,8 @@ if [[ ! -f $HOME/.no-lock ]]; then
 		convert $screenshot_file -resize "800%" $screenshot_file
 	fi
 
-	if [[ -f $image_file ]]; then
-		i3lock -p default -c $colour -i $image_file
-	else
-		i3lock -p default -c $colour
-	fi
+	[[ -f $image_file ]] && image_opt="-i $image_file"
+	i3lock -c $colour $cursor_opt $image_opt
 
 	# if we created a screenshot, delete it again
 	[[ -f $screenshot_file ]] && shred -u $screenshot_file
