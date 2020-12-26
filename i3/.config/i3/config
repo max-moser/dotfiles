@@ -254,7 +254,7 @@ bindsym $Alt+Shift+0 move container to workspace number $ws10; workspace number 
 # Resize Window
 # --------------
 # (you can also use the mouse for that)
-mode "resize" {
+mode "Resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -278,19 +278,19 @@ mode "resize" {
         bindsym $Alt+r mode "default"
 }
 
-bindsym $Alt+r mode "resize"
+bindsym $Alt+r mode "Resize"
 
 
 # Power Management Menu
 # ----------------------
-set $locker $bin/simple-lock.sh -s
-set $locker_sleep $bin/simple-lock.sh -s && sleep 1
+set $locker $HOME/.config/i3/bin/simple-lock.sh -s
 set $mode_system (L) Lock, (O) Logout, (S) Suspend, (H) Hibernate, (Shift+R) Reboot, (Shift+P) Power Off
+
 mode "$mode_system" {
     bindsym l exec --no-startup-id $locker, mode "default"
     bindsym o exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $locker_sleep && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $locker_sleep && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id $locker && sleep 1 && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $locker && sleep 1 && systemctl hibernate, mode "default"
     bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+p exec --no-startup-id systemctl poweroff -i, mode "default"
 
