@@ -1,18 +1,10 @@
 #!/bin/bash
 
-timeout=60
 colour=000000
 screenshot=0
 image_file=
-while getopts "t:c:i:s" opt; do
+while getopts "c:i:s" opt; do
 	case $opt in
-		t)
-			timeout=$OPTARG
-			if ! [[ $timeout =~ ^[0-9]+$ ]] ; then
-			   echo "error: timeout must be a number" >&2
-			   exit 1
-			fi
-			;;
 		c)
 			colour=$OPTARG
 			if ! [[ $colour =~ ^[0-9a-f]{6}$ ]] ; then
@@ -58,19 +50,5 @@ if [[ ! -f $HOME/.no-lock ]]; then
 
 	# if we created a screenshot, delete it again
 	[[ -f $screenshot_file ]] && shred -u $screenshot_file
-
-	if [[ $timeout -gt 0 ]]; then
-		locked=1
-		while [[ $locked -gt 0 ]]; do
-			sleep ${timeout}s
-			pgrep i3lock
-			if [[ $? -eq 0 ]]; then
-				xset dpms force off
-				sleep 1
-			else
-				locked=0
-			fi
-		done
-	fi
 fi
 

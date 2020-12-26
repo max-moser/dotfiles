@@ -52,6 +52,7 @@ workspace_auto_back_and_forth yes
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id $HOME/.config/i3/bin/setup-lock.sh
 exec --no-startup-id xautolock -time 20 -locker "$HOME/.config/i3/bin/simple-lock.sh -s"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -323,7 +324,7 @@ client.background                  $nord0
 # bindsym $mod+m bar mode toggle
 
 set $locker $HOME/.config/i3/bin/simple-lock.sh -s
-set $locker_sleep $HOME/.config/i3/bin/simple-lock.sh -s -t 0 && sleep 1
+set $locker_sleep $HOME/.config/i3/bin/simple-lock.sh -s && sleep 1
 set $mode_system (L) Lock, (O) Logout, (S) Suspend, (H) Hibernate, (Shift+R) Reboot, (Shift+P) Power Off
 mode "$mode_system" {
     bindsym l exec --no-startup-id $locker, mode "default"
