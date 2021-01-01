@@ -45,7 +45,7 @@ exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 
 # screen locking & display power management
 exec --no-startup-id $bin/setup-lock.sh
-exec --no-startup-id xautolock -time $lock_time -locker "$bin/simple-lock.sh -s"
+exec --no-startup-id xautolock -time $lock_time -locker "$bin/simple-lock.sh -s" &
 
 # configure mouse (disable acceleration and set speed)
 exec --no-startup-id $bin/mouse.sh
@@ -65,6 +65,9 @@ exec --no-startup-id $notifd
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# register handler for screen-change notifications
+exec --no-startup-id $bin/handle-screen-change.sh &
 
 
 # Hotkeys for Programs
