@@ -3,7 +3,7 @@ set $Win Mod4
 set $bin $HOME/.config/sway/bin
 set $terminal alacritty
 set $explorer nemo
-set $notifd dunst
+set $notifd mako
 set $lock_time 1200
 
 
@@ -65,13 +65,19 @@ bindsym Ctrl+$Alt+t exec $terminal
 bindsym $Win+e exec $explorer
 
 # start rofi (a program launcher)
-bindsym $Win+d exec rofi -show drun
-bindsym $Win+s exec rofi -show ssh
-bindsym $Win+Shift+d exec --no-startup-id rofi -show run
-bindsym $Win+Shift+Tab exec --no-startup-id rofi -show window
-bindsym $Win+Tab exec rofi -show window
+bindsym $Win+d exec rofi -show drun -display-drun "Application"
+bindsym $Win+s exec rofi -show ssh -display-ssh "SSH"
+bindsym $Win+Shift+d exec --no-startup-id rofi -show run -display-run "Program"
+bindsym $Win+Shift+Tab exec --no-startup-id rofi -show window -display-window "Window"
+bindsym $Win+Tab exec --no-startup-id rofi -show window -display-window "Window"
 bindsym $Alt+Tab focus next
 bindsym $Alt+Shift+Tab focus prev
+
+# notification daemon control
+bindsym Ctrl+Space exec makoctl dismiss
+bindsym Ctrl+Shift+Space exec makoctl dismiss -a
+bindsym Ctrl+Shift+Grave exec makoctl restore
+bindsym Ctrl+Shift+Period exec makoctl menu rofi -dmenu -p "Choose Action"
 
 # screenshots
 bindsym --release Print exec $bin/screenshot.sh
@@ -157,12 +163,12 @@ bindsym $Alt+Shift+w layout tabbed
 bindsym $Alt+Shift+e layout toggle split
 
 # toggle tiling / floating
-bindsym $Alt+Shift+space floating toggle
-bindsym $Win+Shift+space floating toggle
+bindsym $Alt+Shift+Space floating toggle
+bindsym $Win+Shift+Space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $Alt+space focus mode_toggle
-bindsym $Win+space focus mode_toggle
+bindsym $Alt+Space focus mode_toggle
+bindsym $Win+Space focus mode_toggle
 
 # focus the parent container
 bindsym $Alt+a focus parent

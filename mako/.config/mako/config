@@ -1,0 +1,60 @@
+# general settings
+sort=-time
+layer=top
+anchor=top-right
+
+format=<b>%s</b>\n%b
+group-by=app-name,urgency
+
+# size
+width=300
+height=110
+padding=8
+margin=10,10,5,10
+border-radius=10
+border-size=3
+
+# Nord colors
+background-color=#3B4252
+text-color=#D8DEE9
+border-color=#4C566A
+
+# show icons
+icons=1
+max-icon-size=64
+
+# don't ignore specific timeouts if set
+ignore-timeout=0
+default-timeout=5000
+
+
+# special formatting based on group status and actionability
+[actionable]
+format=[A] <b>%s</b>\n%b
+
+[grouped !actionable]
+format=(%g) <b>%s</b>\n%b
+
+[grouped actionable]
+format=(%g) [A] <b>%s</b>\n%b
+
+
+# special formatting based on urgency
+[urgency=low]
+background-color=#3B4252
+text-color=#D8DEE9
+border-color=#2E3440
+default-timeout=5000
+
+[urgency=normal]
+background-color=#434C5E
+text-color=#E5E9F0
+border-color=#4C566A
+default-timeout=5000
+
+[urgency=high]
+background-color=#BF616A
+text-color=#ECEFF4
+border-color=#EBCB8B
+default-timeout=0
+
