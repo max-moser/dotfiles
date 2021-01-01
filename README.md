@@ -32,6 +32,71 @@ Before installing the `zsh` dotfiles, make sure that [Oh My Zsh](https://github.
 
 
 
+# Usage
+
+
+## sway and i3
+
+Most of the following hotkeys work for both i3 and sway, with some exceptions (e.g. the monitor management isn't implemented for i3/X11 yet).
+For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
+
+### Applications
+
+* `Win+e`: Application launcher
+* `Win+Shift+d`: Executable launcher
+* `Win+Enter`: Launch terminal emulator
+* `Win+e`: Launch file explorer
+
+### Windows
+
+* `Win+Tab`: Switch to window
+* `Alt+h/j/k/l`: Select window to the left/up/down/right
+* `Alt+Tab`: Select next window
+* `Alt+Shift+Tab`: Select previous window
+* `Alt+Shift+h/j/k/l`: Move selected window to the left/up/down/right
+* `Alt+a`: Focus parent container
+* `Alt+Shift+a`: Focus child container
+* `Alt+Shift+f`: Toggle fullscreen
+* `Ctrl+Alt+Shift+f`: Toggle fullscreen (over all screens)
+* `Alt+Shift+q`: Kill window
+
+### Workspaces
+
+* `Alt+[1-9]`: Select workspace by number
+* `Alt+Shift+[1-9]`: Move selected window to workspace
+* `Alt+n`: Select next workspace on focused monitor
+* `Alt+p`: Select previous workspace on focused monitor
+* `Alt+Shift+n`: Create new workspace
+
+### Screenshots
+
+* `Print`: All screens (to new file)
+* `Control+Print`: All screens (to clipboard)
+* `Shift+Print`: Selected area (to new file)
+* `Control+Shift+Print`: Selected area (to clipboard)
+
+### Menus
+
+* `Alt+r`: Resize windows (with `h/j/k/l`)
+* `Alt+M`: Monitor management (move focused monitor, ...)
+* `Alt+Esc`: Power/Session management (logout, lock screen, power off, ...)
+
+### Container Layouts
+
+* `Alt+Shift+s`: Stacking layout
+* `Alt+Shift+w`: Tabbed layout
+* `Alt+Shift+e`: Split layout (toggle horizontal/vertical split)
+* `Ctrl+Alt+i`: Split orientation: horizontal
+* `Ctrl+Alt+o`: Split orientation: vertical
+* `Ctrl+Alt+p`: Split orientation: toggle (horizontal/vertical)
+
+### Floating Windows
+
+* `Alt+Space`: Toggle focus floating windows
+* `Alt+Shift+Space`: Toggle floating layout for current window
+
+
+
 # Requirements
 
 
@@ -50,7 +115,7 @@ Before installing the `zsh` dotfiles, make sure that [Oh My Zsh](https://github.
 * [`i3lock`](https://github.com/i3/i3lock): Screen Locker
 * `xautolock`: Automatic Screen Locking
 
-### Other
+### Script Dependencies
 
 * [`bash`](https://www.gnu.org/software/bash/): Interpreter for scripts
 * [`imagemagick`](https://imagemagick.org/index.php): Image manipulation (screen locking)
@@ -59,16 +124,48 @@ Before installing the `zsh` dotfiles, make sure that [Oh My Zsh](https://github.
 * [`xinput`](https://www.x.org/wiki/): Mouse settings
 * [`xbacklight`](https://www.x.org/wiki/): Monitor backlight management (currently not in use)
 * [`gnome-screenshot`](https://gitlab.gnome.org/GNOME/gnome-screenshot): Fancier screenshot utility
+* [`jq`](https://stedolan.github.io/jq/): JSON Processor (for parsing IPC messages)
+* [`pulseaudio`](https://www.x.org/wiki/): Audio Control
+* [`polkit`](https://www.freedesktop.org/wiki/Software/polkit/): Authorization Manager (for allowing normal users to reboot, etc.)
 
 
 ## polybar
 
-* `bluetoothctl` ([`bluez-utils`](http://www.bluez.org/)) -- for the Bluetooth module (currently disabled)
+* `bluetoothctl` ([`bluez-utils`](http://www.bluez.org/)): For the Bluetooth module (currently disabled)
 
 
 ## dunst
 
 * [`firefox`](https://www.mozilla.org/en-US/firefox/new/): Browser
+
+
+## sway
+
+### Default Programs
+
+* [`alacritty`](https://github.com/alacritty/alacritty): Terminal Emulator
+* [`nemo`](https://wiki.archlinux.org/index.php/Nemo): File Explorer
+* [`dunst`](https://github.com/dunst-project/dunst): Notification Daemon
+* [`waybar`](https://github.com/Alexays/Waybar/): Status Bar
+* [`rofi`](https://github.com/davatorium/rofi): Application Launcher
+* [`swaylock`](https://github.com/swaywm/swaylock): Screen Locker
+* [`swayidle`](https://github.com/swaywm/swayidle): Automatic Screen Locking
+
+### Script Dependencies
+
+* [`bash`](https://www.gnu.org/software/bash/): Interpreter for scripts
+* [`python3`](https://www.python.org/): Scripting Language
+* [`imagemagick`](https://imagemagick.org/index.php): Image manipulation (screen locking)
+* [`grim`](https://github.com/emersion/grim): Screen Capture Utility
+* [`slurp`](https://github.com/emersion/slurp): Screen Area Selection Utility (screenshots)
+* `wl-copy` ([`wl-clipboard`](https://github.com/bugaevc/wl-clipboard)): Clipboard Utility (screenshots)
+* [`jq`](https://stedolan.github.io/jq/): JSON Processor (for parsing IPC messages)
+* [`polkit`](https://www.freedesktop.org/wiki/Software/polkit/): Authorization Manager (for allowing normal users to reboot, etc.)
+
+
+## waybar
+
+* [`pavucontrol`](https://freedesktop.org/software/pulseaudio/pavucontrol/): PulseAudio GUI
 
 
 
