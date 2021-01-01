@@ -4,7 +4,7 @@ set $bin $HOME/.config/sway/bin
 set $terminal alacritty
 set $explorer nemo
 set $notifd dunst
-set $lock_time 20
+set $lock_time 1200
 
 
 # General Configuration
@@ -27,15 +27,11 @@ workspace_auto_back_and_forth yes
 # Autostart
 # ----------
 #
-# execute setup scripts for monitors
-# exec --no-startup-id $bin/setup-monitors.sh
-
 # merge the values from .Xresources
 exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 
 # screen locking & display power management
-# exec --no-startup-id $bin/setup-lock.sh
-# exec --no-startup-id xautolock -time $lock_time -locker "$bin/simple-lock.sh -s" &
+exec --no-startup-id swayidle -w timeout $lock_time "$bin/lock.sh -s" before-sleep "$bin/lock.sh -s"
 
 # start a composite manager to avoid tearing, etc.
 exec --no-startup-id picom -b
@@ -262,14 +258,14 @@ bindsym $Alt+r mode "Resize"
 
 # Power Management Menu
 # ----------------------
-# set $locker $HOME/.config/i3/bin/simple-lock.sh -s # TODO
+set $locker $HOME/.config/sway/bin/lock.sh -s
 set $mode_system (L) Lock, (O) Logout, (S) Suspend, (H) Hibernate, (Shift+R) Reboot, (Shift+P) Power Off
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id swaylock, mode "default"
+    bindsym l exec --no-startup-id $locker, mode "default"
     bindsym o exec --no-startup-id swaymsg exit, mode "default"
-    # bindsym s exec --no-startup-id $locker && sleep 1 && systemctl suspend, mode "default"
-    # bindsym h exec --no-startup-id $locker && sleep 1 && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id $locker && sleep 1 && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $locker && sleep 1 && systemctl hibernate, mode "default"
     bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+p exec --no-startup-id systemctl poweroff -i, mode "default"
 
