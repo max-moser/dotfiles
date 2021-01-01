@@ -1,0 +1,70 @@
+@define-color nord0 #2E3440;
+@define-color nord1 #3B4252;
+@define-color nord2 #434C5E;
+@define-color nord3 #4C566A;
+@define-color nord4 #D8DEE9;
+@define-color nord5 #E5E9F0;
+@define-color nord6 #ECEFF4;
+@define-color nord7 #8FBCBB;
+@define-color nord8 #88C0D0;
+@define-color nord9 #81A1C1;
+@define-color nord10 #5E81AC;
+@define-color nord11 #BF616A;
+@define-color nord12 #D08770;
+@define-color nord13 #EBCB8B;
+@define-color nord14 #A3BE8C;
+@define-color nord15 #B48EAD;
+@define-color background     @nord0;
+@define-color background_alt @nord1;
+@define-color foreground     @nord4;
+@define-color foreground_alt @nord5;
+@define-color primary        @nord15;
+@define-color secondary      @nord13;
+@define-color error          @nord11;
+@define-color alert          @nord12;
+@define-color info           @nord13;
+@define-color ok             @nord14;
+@define-color extra          @nord15;
+
+window#waybar {
+	font-family: "Font Awesome";
+    background: @background;
+    border-top: 1px solid @background_alt;
+    color: @foreground;
+}
+
+/* modules on the right */
+#backlight, #pulseaudio, #idle_inhibitor, #language, #battery, #clock, #tray {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+#clock {
+	font-weight: bold;
+}
+
+/* sway */
+#mode {
+	background-color: @extra;
+	color: @background;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-weight: bold;
+}
+
+#workspaces {
+	margin-top: 1px;
+}
+
+#workspaces button {
+	background-color: @background;
+}
+
+#workspaces button.focused {
+	background-color: @background_alt;
+}
+
+#worspaces button.urgent {
+	background-color: @alert;
+}
+

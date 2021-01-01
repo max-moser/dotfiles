@@ -1,0 +1,57 @@
+{
+	"layer": "top",
+	"position": "bottom",
+
+	"modules-left": ["sway/workspaces"],
+	"modules-center": ["sway/mode"],
+	"modules-right": ["backlight", "pulseaudio", "idle_inhibitor", "sway/language", "battery", "clock", "tray"],
+
+	"height": 34,
+
+	// modules
+	"sway/workspaces": {
+		"all-outputs": false,
+		"format": "{name}",
+	},
+
+	"backlight": {
+	},
+
+	"pulseaudio": {
+		"on-click": "pulseaudio-ctl mute",
+		"on-click-right": "pavucontrol",
+		"format": "🔉  {volume}%",
+		"format-muted": "🔇  muted",
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	"sway/language": {
+		"format": "{}",
+		"max-length": 50
+	},
+
+	"battery": {
+	},
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%H:%M}",
+		"format-alt": "{:[%Y-%m-%d]  %H:%M:%S}",
+		"tooltip-format": "<big>{:%B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
+		"today-format": "<b><u>{}</u></b>",
+		"locale": "en_US.UTF-8"
+	},
+
+	"tray": {
+		"icon-size": 18,
+		"spacing": 8,
+	}
+}
+
