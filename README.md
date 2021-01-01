@@ -145,7 +145,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 
 * [`alacritty`](https://github.com/alacritty/alacritty): Terminal Emulator
 * [`nemo`](https://wiki.archlinux.org/index.php/Nemo): File Explorer
-* [`dunst`](https://github.com/dunst-project/dunst): Notification Daemon
+* [`mako`](https://wayland.emersion.fr/mako/): Notification Daemon
 * [`waybar`](https://github.com/Alexays/Waybar/): Status Bar
 * [`rofi`](https://github.com/davatorium/rofi): Application Launcher
 * [`swaylock`](https://github.com/swaywm/swaylock): Screen Locker
