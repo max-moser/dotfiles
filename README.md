@@ -150,6 +150,9 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 * [`rofi`](https://github.com/davatorium/rofi): Application Launcher
 * [`swaylock`](https://github.com/swaywm/swaylock): Screen Locker
 * [`swayidle`](https://github.com/swaywm/swayidle): Automatic Screen Locking
+* [`pulseaudio`](https://www.x.org/wiki/): Audio Control
+* [`playerctl`](https://github.com/acrisci/playerctl): Audio Player Control
+* [`brightnessctl`](https://github.com/Hummer12007/brightnessctl): Backlight Control
 
 ### Script Dependencies
 
@@ -166,6 +169,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 ## waybar
 
 * [`pavucontrol`](https://freedesktop.org/software/pulseaudio/pavucontrol/): PulseAudio GUI
+* [`brightnessctl`](https://github.com/Hummer12007/brightnessctl): Backlight Control
 
 
 
