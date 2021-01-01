@@ -170,6 +170,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 
 * [`pavucontrol`](https://freedesktop.org/software/pulseaudio/pavucontrol/): PulseAudio GUI
 * [`brightnessctl`](https://github.com/Hummer12007/brightnessctl): Backlight Control
+* [`networkmanager`](https://wiki.gnome.org/Projects/NetworkManager): Network Manager
 
 
 

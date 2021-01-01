@@ -4,7 +4,7 @@
 
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["sway/mode"],
-	"modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "sway/language", "battery", "clock", "tray"],
+	"modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "sway/language", "battery", "network", "clock", "tray"],
 
 	"height": 34,
 
@@ -51,6 +51,26 @@
 		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-time": "{H}h {M}min"
+	},
+
+	"network": {
+		"states": {
+			"critical": 20,
+			"warning": 40,
+			"low": 60,
+			"ok": 80,
+			"great": 100
+		},
+		"format": "",
+		"format-ethernet": "🖥️ LAN",
+		"format-disconnected": "🚫 Disconnected",
+		"format-wifi": "📶 {essid}",
+		"tooltip-format": "",
+		"tooltip-format-wifi": "{ipaddr}/{cidr}  -  Signal: {signalStrength}%",
+		"tooltip-format-ethernet": "{ipaddr}/{cidr}  -  Interface: {ifname}",
+		"tooltip-format-disconnected": "Disconnected",
+		// TODO: open NetworkManager front-end on left-click
+		"on-click-right": "nm-connection-editor"
 	},
 
 	"clock": {

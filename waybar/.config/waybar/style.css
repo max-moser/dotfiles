@@ -58,7 +58,7 @@ tooltip * {
 }
 
 /* modules on the right */
-#backlight, #pulseaudio, #idle_inhibitor, #language, #battery, #clock, #tray {
+#idle_inhibitor, #backlight, #pulseaudio, #language, #battery, #network, #clock, #tray {
 	margin-left: 1em;
 	margin-right: 1em;
 }
@@ -80,6 +80,23 @@ tooltip * {
 #battery.critical {
 	font-weight: bold;
 	color: @error;
+}
+
+/* highlight bad network connection */
+#network.low {
+	color: @info;
+}
+
+#network.warning {
+	color: @alert;
+}
+
+#network.critical {
+	color: @error;
+}
+
+#network.disconnected {
+	color: @extra;
 }
 
 /* sway */
