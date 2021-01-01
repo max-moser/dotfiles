@@ -33,6 +33,30 @@ window#waybar {
     color: @foreground;
 }
 
+/* tooltip styling, from Nordic-bluish-accent */
+tooltip {
+	padding: 4px;
+	border-radius: 5px;
+	box-shadow: none;
+	text-shadow: 0 1px black;
+}
+
+tooltip.background {
+	background-color: rgba(40, 45, 55, 0.93);
+	background-clip: padding-box;
+	border: 1px solid #232831;
+}
+
+tooltip decoration {
+	background-color: transparent;
+}
+
+tooltip * {
+	padding: 4px;
+	background-color: transparent;
+	color: @foreground;
+}
+
 /* modules on the right */
 #backlight, #pulseaudio, #idle_inhibitor, #language, #battery, #clock, #tray {
 	margin-left: 1em;
@@ -41,6 +65,21 @@ window#waybar {
 
 #clock {
 	font-weight: bold;
+}
+
+/* highlight low battery values */
+#battery.low {
+	color: @info;
+}
+
+#battery.warning {
+	font-weight: bold;
+	color: @alert;
+}
+
+#battery.critical {
+	font-weight: bold;
+	color: @error;
 }
 
 /* sway */

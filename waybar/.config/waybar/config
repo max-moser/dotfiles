@@ -4,24 +4,27 @@
 
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["sway/mode"],
-	"modules-right": ["backlight", "pulseaudio", "idle_inhibitor", "sway/language", "battery", "clock", "tray"],
+	"modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "sway/language", "battery", "clock", "tray"],
 
 	"height": 34,
 
 	// modules
 	"sway/workspaces": {
 		"all-outputs": false,
-		"format": "{name}",
+		"format": "{name}"
 	},
 
 	"backlight": {
+		"format": "💡 {percent}%",
+		"on-scroll-up": "brightnessctl set 2%+",
+		"on-scroll-down": "brightnessctl set 2%-"
 	},
 
 	"pulseaudio": {
 		"on-click": "pulseaudio-ctl mute",
 		"on-click-right": "pavucontrol",
 		"format": "🔉  {volume}%",
-		"format-muted": "🔇  muted",
+		"format-muted": "🔇  muted"
 	},
 
 	"idle_inhibitor": {
@@ -38,6 +41,16 @@
 	},
 
 	"battery": {
+		"states": {
+			"low": 45,
+			"warning": 30,
+			"critical": 15
+		},
+		"format-full": "⚡ {capacity}%",
+		"format-discharging": "🔋 {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-time": "{H}h {M}min"
 	},
 
 	"clock": {
@@ -51,7 +64,7 @@
 
 	"tray": {
 		"icon-size": 18,
-		"spacing": 8,
+		"spacing": 8
 	}
 }
 
