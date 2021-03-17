@@ -59,6 +59,7 @@ tooltip * {
 
 /* modules on the right */
 #idle_inhibitor, #backlight, #pulseaudio, #language, #battery, #network, #clock, #tray {
+	background-color: @background;
 	margin-left: 1em;
 	margin-right: 1em;
 }
@@ -80,6 +81,10 @@ tooltip * {
 #battery.critical {
 	font-weight: bold;
 	color: @error;
+}
+
+#battery.charging {
+	color: @ok;
 }
 
 /* highlight bad network connection */
@@ -114,6 +119,7 @@ tooltip * {
 
 #workspaces button {
 	background-color: @background;
+	min-width:1.5em;
 }
 
 #workspaces button.focused {
