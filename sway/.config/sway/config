@@ -34,6 +34,9 @@ hide_edge_borders --i3 smart
 # merge the values from .Xresources
 exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 
+# start kanshi (wayland's autorandr) for automatically setting up the displays
+exec --no-startup-id kanshi
+
 # screen locking & display power management
 exec --no-startup-id swayidle -w timeout $lock_time "$bin/lock.sh -s" before-sleep "$bin/lock.sh -s"
 
