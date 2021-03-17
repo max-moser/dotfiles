@@ -154,6 +154,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 * [`pulseaudio`](https://www.x.org/wiki/): Audio Control
 * [`playerctl`](https://github.com/acrisci/playerctl): Audio Player Control
 * [`brightnessctl`](https://github.com/Hummer12007/brightnessctl): Backlight Control
+* [`gammastep`](https://gitlab.com/chinstrap/gammastep): Color Correction
 
 ### Script Dependencies
 
@@ -165,6 +166,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 * `wl-copy` ([`wl-clipboard`](https://github.com/bugaevc/wl-clipboard)): Clipboard Utility (screenshots)
 * [`jq`](https://stedolan.github.io/jq/): JSON Processor (for parsing IPC messages)
 * [`polkit`](https://www.freedesktop.org/wiki/Software/polkit/): Authorization Manager (for allowing normal users to reboot, etc.)
+* [`geoclue`](https://www.freedesktop.org/wiki/Software/GeoClue/): Geoinformation service (for color correction)
 
 
 ## waybar

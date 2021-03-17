@@ -53,6 +53,9 @@ exec --no-startup-id $notifd
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet --indicator
 
+# start gammastep (the wayland alternative for redshift)
+exec --no-startup-id "$bin/gammastep.sh"
+
 
 # Hotkeys for Programs
 # ---------------------
