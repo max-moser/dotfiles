@@ -82,8 +82,6 @@ bindsym $Win+e exec $explorer
 bindsym $Win+d exec rofi -show drun -display-drun "Application"
 bindsym $Win+s exec rofi -show ssh -display-ssh "SSH"
 bindsym $Win+Shift+d exec --no-startup-id rofi -show run -display-run "Program"
-bindsym $Win+Shift+Tab exec --no-startup-id rofi -show window -display-window "Window"
-bindsym $Win+Tab exec --no-startup-id rofi -show window -display-window "Window"
 bindsym $Alt+Tab focus next
 bindsym $Alt+Shift+Tab focus prev
 
