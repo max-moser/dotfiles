@@ -60,6 +60,7 @@ tooltip * {
 /* modules on the right */
 #idle_inhibitor, #backlight, #pulseaudio, #language, #battery, #network, #clock, #tray {
 	background-color: @background;
+	margin-top: 1px;
 	margin-left: 1em;
 	margin-right: 1em;
 }
@@ -104,6 +105,10 @@ tooltip * {
 	color: @extra;
 }
 
+#network.ethernet {
+	color: @foreground;
+}
+
 /* sway */
 #mode {
 	background-color: @extra;
@@ -118,8 +123,14 @@ tooltip * {
 }
 
 #workspaces button {
+	color: @foreground;
 	background-color: @background;
-	min-width:1.5em;
+	min-width:1em;
+}
+
+#workspaces button:hover {
+	color: @foreground_alt;
+	background-color: @extra;
 }
 
 #workspaces button.focused {
