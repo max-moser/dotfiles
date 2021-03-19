@@ -4,7 +4,8 @@ set $bin $HOME/.config/sway/bin
 set $terminal alacritty
 set $explorer nemo
 set $notifd mako
-set $lock_time 1200
+set $lock_time 900
+set $dpms_time 1200
 
 
 # General Configuration
@@ -42,7 +43,7 @@ exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 exec --no-startup-id kanshi
 
 # screen locking & display power management
-exec --no-startup-id swayidle -w timeout $lock_time "$bin/lock.sh -s" before-sleep "$bin/lock.sh -s"
+exec --no-startup-id swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $dpms_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$bin/lock.sh -s"
 
 # start a composite manager to avoid tearing, etc.
 exec --no-startup-id picom -b
