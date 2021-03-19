@@ -4,17 +4,19 @@ This repository is a collection of configuration files that improve the handling
 Its aim is to provide an efficient keyboard-centric workflow, while not being too hard on the eye.
 
 
-Probably one of the highlights is the small desktop environment that it builds with `i3`, including the following features:
+Probably one of the highlights is the small desktop environment that it builds with `sway`, including the following features:
 
 * [Nord theme](https://www.nordtheme.com/)
 * Background image straight from the [Tyrolean Alps](https://www.alpbachtal.at/en)
 * Screenshots
 * Screen locking
 * Keyboard-centric operation
+* Hotkeys for managing multiple monitors
+* Night-time color correction
 * etc.
 
 
-**Note**: Even though some of the configurations are meant to be used together (e.g. `i3` and `polybar`), others can be used completely stand-alone (e.g. `tmux` and `vim`).
+**Note**: Even though some of the configurations are meant to be used together (e.g. `sway` and `waybar`), others can be used completely stand-alone (e.g. `tmux` and `vim`).
 
 
 
