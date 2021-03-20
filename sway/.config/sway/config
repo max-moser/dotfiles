@@ -3,7 +3,6 @@ set $Win Mod4
 set $bin $HOME/.config/sway/bin
 set $terminal alacritty
 set $explorer nemo
-set $notifd mako
 set $lock_time 900
 set $dpms_time 1200
 
@@ -52,7 +51,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id waybar
 
 # start the notification daemon -- without one, there may be issues (e.g. Rambox hanging)
-exec --no-startup-id $notifd
+exec --no-startup-id mako
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
