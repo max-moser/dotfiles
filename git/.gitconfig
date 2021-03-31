@@ -2,6 +2,7 @@
 	s = status
 	d = diff
 	ds = diff --staged
+	co = checkout
 [user]
 	name = Maximilian Moser
 	email = maximilian.moser@tuwien.ac.at
