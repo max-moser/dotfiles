@@ -163,6 +163,7 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 * [`bash`](https://www.gnu.org/software/bash/): Interpreter for scripts
 * [`python3`](https://www.python.org/): Scripting Language
 * [`imagemagick`](https://imagemagick.org/index.php): Image manipulation (screen locking)
+* [`python-pillow`](https://pillow.readthedocs.io/en/stable/): Imaging Library (for splitting screenshots for swaylock)
 * [`grim`](https://github.com/emersion/grim): Screen Capture Utility
 * [`slurp`](https://github.com/emersion/slurp): Screen Area Selection Utility (screenshots)
 * `wl-copy` ([`wl-clipboard`](https://github.com/bugaevc/wl-clipboard)): Clipboard Utility (screenshots)
