@@ -4,9 +4,10 @@ grimshot=/usr/share/sway/scripts/grimshot
 [[ ! -f $grimshot || ! -x $grimshot ]] && grimshot=$HOME/.config/sway/bin/grimshot
 
 interactive=0
+output=0
 clipboard=0
 fancy=0
-while getopts "fic" opt; do
+while getopts "fico" opt; do
 	case $opt in
 		f)
 			fancy=1
@@ -16,6 +17,9 @@ while getopts "fic" opt; do
 			;;
 		c)
 			clipboard=1
+			;;
+		o)
+			output=1
 			;;
 		*)
 			echo "ignoring unknown option $opt" >&2
@@ -30,6 +34,12 @@ filename="$directory/$(date '+%Y-%m-%d_%H-%M-%S')_screenshot.png"
 
 if [[ $fancy -gt 0 ]]; then
 	gnome-screenshot -i
+
+elif [[ $output -gt 0 && $clipboard -gt 0 ]]; then
+	$grimshot copy output
+
+elif [[ $output -gt 0 ]]; then
+	$grimshot save output $filename
 
 elif [[ $interactive -gt 0 && $clipboard -gt 0 ]]; then
 	$grimshot copy area

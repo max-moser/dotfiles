@@ -104,8 +104,10 @@ bindsym Ctrl+Shift+Period exec makoctl menu rofi -dmenu -p "Choose Action"
 # screenshots
 bindsym --release Print exec $bin/screenshot.sh
 bindsym --release Ctrl+Print exec $bin/screenshot.sh -c
+bindsym --release $Alt+Print exec $bin/screenshot.sh -o
 bindsym --release Shift+Print exec $bin/screenshot.sh -i
 bindsym --release Ctrl+Shift+Print exec $bin/screenshot.sh -ci
+bindsym --release Ctrl+$Alt+Print exec $bin/screenshot.sh -co
 # bindsym --release $Alt+Print exec $bin/screenshot.sh -f
 # bindsym --release $Win+Print exec $bin/screenshot.sh -f
 
