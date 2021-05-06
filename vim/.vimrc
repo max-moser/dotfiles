@@ -38,6 +38,12 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden			" Hide buffers when they are abandoned
 set mouse=a			" Enable mouse usage (all modes)
 
+" enable smart indenting (reacts to the language's syntax)
+set smartindent
+
+" show trailing whitespaces with '-' and tabs with '>'
+set list
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
