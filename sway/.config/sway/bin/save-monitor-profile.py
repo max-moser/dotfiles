@@ -267,16 +267,23 @@ profile = Profile(name=args.profile_name, outputs=set(parsed_outputs), execs=[])
 if args.workspaces:
     cp = sp.run(["swaymsg", "-t", "get_workspaces"], capture_output=True, text=True)
     workspaces = json.loads(cp.stdout)
+    workspace_setup_parts = []
 
+    # collect mappings between workspaces and their outputs
     for workspace in sorted(workspaces, key=lambda w: w["name"]):
         outputs = [o for o in parsed_outputs if o.output == workspace["output"]]
         if outputs:
             cmd = (
-                f"exec swaymsg workspace {workspace['name']}, "
+                f"workspace {workspace['name']}, "
                 f"move workspace to '\"{outputs[0].identifier}\"'"
             )
 
-            profile.execs.append(cmd)
+            workspace_setup_parts.append(cmd)
+
+    # put everything in a single swaymsg
+    if workspace_setup_parts:
+        workspace_setup = ', '.join(workspace_setup_parts)
+        profile.execs.append(f"exec swaymsg {workspace_setup}")
 
 # merge the current profile into the existing profiles
 if profile in profiles:
