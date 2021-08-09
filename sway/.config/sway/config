@@ -42,7 +42,7 @@ exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 
 # fix GTK applications to be really slow to start, due to issues with xdg-desktop-portal
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 # import gsettings (some GTK applications ignore some settings otherwise)
 exec_always "$bin/import-gsettings.sh"
