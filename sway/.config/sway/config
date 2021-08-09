@@ -13,7 +13,7 @@ set $dpms_time 1200
 # ----------------------
 #
 # font for window titles
-font pango:Cascadia Code Italic 10
+font pango:Cascadia Code 10
 
 # disable the focus following the mouse and vice versa
 focus_follows_mouse no
