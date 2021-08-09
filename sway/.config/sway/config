@@ -1,3 +1,5 @@
+# vim: ft=conf ts=4 expandtab
+
 set $Alt Mod1
 set $Win Mod4
 set $bin $HOME/.config/sway/bin
