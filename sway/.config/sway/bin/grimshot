@@ -8,6 +8,7 @@
 ##  - `wl-copy`: clipboard utility
 ##  - `jq`: json utility to parse swaymsg output
 ##  - `notify-send`: to show notifications
+##  - `swappy`: to edit the screenshot
 ## Those are needed to be installed, if unsure, run `grimshot check`
 ##
 ## See `man 1 grimshot` or `grimshot usage` for further details.
@@ -33,14 +34,15 @@ ACTION=${1:-usage}
 SUBJECT=${2:-screen}
 FILE=${3:-$(getTargetDirectory)/$(date -Ins).png}
 
-if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "check" ]; then
+if [ "$ACTION" != "save" ] && [ "$ACTION" != "edit" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "check" ]; then
   echo "Usage:"
-  echo "  grimshot [--notify] (copy|save) [active|screen|output|area|window] [FILE]"
+  echo "  grimshot [--notify] (copy|edit|save) [active|screen|output|area|window] [FILE]"
   echo "  grimshot check"
   echo "  grimshot usage"
   echo ""
   echo "Commands:"
   echo "  copy: Copy the screenshot data into the clipboard."
+  echo "  edit: Edit the screenshot using swappy."
   echo "  save: Save the screenshot to a regular file."
   echo "  check: Verify if required tools are installed and exit."
   echo "  usage: Show this message and exit."
@@ -111,6 +113,7 @@ if [ "$ACTION" = "check" ] ; then
   check wl-copy
   check jq
   check notify-send
+  check swappy
   exit
 elif [ "$SUBJECT" = "area" ] ; then
   GEOM=$(slurp -d)
@@ -145,6 +148,9 @@ fi
 if [ "$ACTION" = "copy" ] ; then
   takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
   notifyOk "$WHAT copied to buffer"
+elif [ "$ACTION" = "edit" ] ; then
+  takeScreenshot - "$GEOM" "$OUTPUT" | swappy -f - || die "Editing error"
+  notifyOk "$WHAT done editing"
 else
   if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"; then
     TITLE="Screenshot of $SUBJECT"
