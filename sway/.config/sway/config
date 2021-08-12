@@ -418,6 +418,10 @@ input type:pointer {
 	pointer_accel 0.33
 }
 
+input type:keyboard {
+    xkb_layout eu
+}
+
 output * {
 	background ~/.background.jpg fill
 }
