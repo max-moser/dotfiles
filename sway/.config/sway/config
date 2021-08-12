@@ -38,7 +38,7 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 # ----------
 #
 # merge the values from .Xresources
-exec_always --no-startup-id xrdb -merge $HOME/.Xresources
+exec_always xrdb -merge $HOME/.Xresources
 
 # fix GTK applications to be really slow to start, due to issues with xdg-desktop-portal
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -48,29 +48,29 @@ exec hash dbus-update-activation-environment && dbus-update-activation-environme
 exec_always "$bin/import-gsettings.sh"
 
 # start kanshi (wayland's autorandr) for automatically setting up the displays
-exec --no-startup-id kanshi
+exec kanshi
 
 # screen locking & display power management
-exec --no-startup-id swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $dpms_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$bin/lock.sh -s"
+exec swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $dpms_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$bin/lock.sh -s"
 
 # start a composite manager to avoid tearing, etc.
-exec --no-startup-id picom -b
+exec picom -b
 
 # start waybar
-exec --no-startup-id waybar
+exec waybar
 
 # start the notification daemon -- without one, there may be issues (e.g. Rambox hanging)
-exec --no-startup-id mako
+exec mako
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet --indicator
+exec nm-applet --indicator
 
 # start gammastep (the wayland alternative for redshift)
-exec --no-startup-id "$bin/gammastep.sh"
+exec "$bin/gammastep.sh"
 
 # start an installed polkit agent
-exec --no-startup-id "$bin/polkit-agent.sh"
+exec "$bin/polkit-agent.sh"
 
 
 # Hotkeys for Programs
@@ -78,48 +78,48 @@ exec --no-startup-id "$bin/polkit-agent.sh"
 # note: 'exec --locked' allows the hotkeys even in locked state (swaylock)
 #
 # Use pactl to adjust volume in PulseAudio.
-bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
-bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
-bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym --locked XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym --locked XF86AudioMute         exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute      exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # playerctl for controlling music players
-bindsym --locked XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym --locked XF86AudioNext exec --no-startup-id playerctl next
-bindsym --locked XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym --locked XF86AudioPlay         exec playerctl play-pause
+bindsym --locked XF86AudioNext         exec playerctl next
+bindsym --locked XF86AudioPrev         exec playerctl previous
 
 # brightnessctl for adjusting backlight
-bindsym --locked XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
-bindsym --locked XF86MonBrightnessUp exec --no-startup-id brightnessctl set +1%
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym --locked XF86MonBrightnessUp   exec brightnessctl set +1%
 
 # start a terminal
-bindsym $Win+Return exec $terminal
-bindsym Ctrl+$Alt+Return exec $terminal
-bindsym Ctrl+$Alt+t exec $terminal
+bindsym $Win+Return                    exec $terminal
+bindsym Ctrl+$Alt+Return               exec $terminal
+bindsym Ctrl+$Alt+t                    exec $terminal
 
 # start the file explorer
-bindsym $Win+e exec $explorer
+bindsym $Win+e                         exec $explorer
 
 # start rofi (a program launcher)
-bindsym $Win+d exec rofi -show drun -display-drun "Application"
-bindsym $Win+s exec rofi -show ssh -display-ssh "SSH"
-bindsym $Win+Shift+d exec --no-startup-id rofi -show run -display-run "Program"
-bindsym $Alt+Tab focus next
-bindsym $Alt+Shift+Tab focus prev
+bindsym $Win+d                         exec rofi -show drun -display-drun "Application"
+bindsym $Win+s                         exec rofi -show ssh -display-ssh "SSH"
+bindsym $Win+Shift+d                   exec rofi -show run -display-run "Program"
+bindsym $Alt+Tab                       focus next
+bindsym $Alt+Shift+Tab                 focus prev
 
 # notification daemon control
-bindsym Ctrl+Space exec makoctl dismiss
-bindsym Ctrl+Shift+Space exec makoctl dismiss -a
-bindsym Ctrl+Shift+Grave exec makoctl restore
-bindsym Ctrl+Shift+Period exec makoctl menu rofi -dmenu -p "Choose Action"
+bindsym Ctrl+Space                     exec makoctl dismiss
+bindsym Ctrl+Shift+Space               exec makoctl dismiss -a
+bindsym Ctrl+Shift+Grave               exec makoctl restore
+bindsym Ctrl+Shift+Period              exec makoctl menu rofi -dmenu -p "Choose Action"
 
 # screenshots
-bindsym --release Print exec $bin/screenshot.sh -o
-bindsym --release $Alt+Print exec $bin/screenshot.sh
-bindsym --release Shift+Print exec $bin/screenshot.sh -i
-bindsym --release Ctrl+Print exec $bin/screenshot.sh -co
-bindsym --release Ctrl+$Alt+Print exec $bin/screenshot.sh -c
-bindsym --release Ctrl+Shift+Print exec $bin/screenshot.sh -ci
+bindsym --release Print                exec $bin/screenshot.sh -o
+bindsym --release $Alt+Print           exec $bin/screenshot.sh
+bindsym --release Shift+Print          exec $bin/screenshot.sh -i
+bindsym --release Ctrl+Print           exec $bin/screenshot.sh -co
+bindsym --release Ctrl+$Alt+Print      exec $bin/screenshot.sh -c
+bindsym --release Ctrl+Shift+Print     exec $bin/screenshot.sh -ci
 
 
 # Navigation and sway Management
@@ -214,7 +214,7 @@ bindsym $Alt+Shift+a focus child
 # focus next/previous workspace on the focused output
 bindsym $Alt+n workspace next_on_output
 bindsym $Alt+p workspace prev_on_output
-bindsym $Alt+Shift+n exec --no-startup-id $bin/create-new-workspace.sh
+bindsym $Alt+Shift+n exec $bin/create-new-workspace.sh
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -302,12 +302,12 @@ set $locker $HOME/.config/sway/bin/lock.sh -s
 set $mode_system (L) Lock, (O) Logout, (S) Suspend, (H) Hibernate, (Shift+R) Reboot, (Shift+P) Power Off
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $locker, mode "default"
-    bindsym o exec --no-startup-id swaymsg exit, mode "default"
-    bindsym s exec --no-startup-id $locker && sleep 1 && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $locker && sleep 1 && systemctl hibernate, mode "default"
-    bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+p exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l       exec $locker, mode "default"
+    bindsym o       exec swaymsg exit, mode "default"
+    bindsym s       exec $locker && sleep 1 && systemctl suspend, mode "default"
+    bindsym h       exec $locker && sleep 1 && systemctl hibernate, mode "default"
+    bindsym Shift+r exec systemctl reboot, mode "default"
+    bindsym Shift+p exec systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -324,48 +324,48 @@ set $mode_monitor Monitor: (H, L, [1-9]): Move, (M): Mirror, (O): Disable, (Shif
 set $mode_mirror_monitor Mirror: (H, L, [1-9]): Target Monitor
 
 mode "$mode_monitor" {
-    bindsym h exec --no-startup-id $bin/monitorctl.py -l, mode "default"
-    bindsym Left exec --no-startup-id $bin/monitorctl.py -l, mode "default"
-    bindsym l exec --no-startup-id $bin/monitorctl.py -r, mode "default"
-    bindsym Right exec --no-startup-id $bin/monitorctl.py -r, mode "default"
-    bindsym o exec --no-startup-id $bin/monitorctl.py --off, mode "default"
-    bindsym Shift+o exec --no-startup-id $bin/monitorctl.py --on, mode "default"
-    bindsym s exec --no-startup-id $bin/save-monitor-profile.py -w, mode "default"
+    bindsym h       exec $bin/monitorctl.py -l, mode "default"
+    bindsym Left    exec $bin/monitorctl.py -l, mode "default"
+    bindsym l       exec $bin/monitorctl.py -r, mode "default"
+    bindsym Right   exec $bin/monitorctl.py -r, mode "default"
+    bindsym o       exec $bin/monitorctl.py --off, mode "default"
+    bindsym Shift+o exec $bin/monitorctl.py --on, mode "default"
+    bindsym s       exec $bin/save-monitor-profile.py -w, mode "default"
 
-    bindsym 1 exec --no-startup-id $bin/monitorctl.py 0, mode "default"
-    bindsym 2 exec --no-startup-id $bin/monitorctl.py 1, mode "default"
-    bindsym 3 exec --no-startup-id $bin/monitorctl.py 2, mode "default"
-    bindsym 4 exec --no-startup-id $bin/monitorctl.py 3, mode "default"
-    bindsym 5 exec --no-startup-id $bin/monitorctl.py 4, mode "default"
-    bindsym 6 exec --no-startup-id $bin/monitorctl.py 5, mode "default"
-    bindsym 7 exec --no-startup-id $bin/monitorctl.py 6, mode "default"
-    bindsym 8 exec --no-startup-id $bin/monitorctl.py 7, mode "default"
-    bindsym 9 exec --no-startup-id $bin/monitorctl.py 8, mode "default"
+    bindsym 1 exec $bin/monitorctl.py 0, mode "default"
+    bindsym 2 exec $bin/monitorctl.py 1, mode "default"
+    bindsym 3 exec $bin/monitorctl.py 2, mode "default"
+    bindsym 4 exec $bin/monitorctl.py 3, mode "default"
+    bindsym 5 exec $bin/monitorctl.py 4, mode "default"
+    bindsym 6 exec $bin/monitorctl.py 5, mode "default"
+    bindsym 7 exec $bin/monitorctl.py 6, mode "default"
+    bindsym 8 exec $bin/monitorctl.py 7, mode "default"
+    bindsym 9 exec $bin/monitorctl.py 8, mode "default"
 
     # back to normal: Enter or Escape
-	bindsym m mode "$mode_mirror_monitor"
+    bindsym m mode "$mode_mirror_monitor"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
 mode "$mode_mirror_monitor" {
-	# FIXME monitor mirroring isn't supported yet in sway
-    # bindsym h exec --no-startup-id $bin/monitorctl.py -l, mode "default"
-    # bindsym Left exec --no-startup-id $bin/monitorctl.py -l, mode "default"
-    # bindsym l exec --no-startup-id $bin/monitorctl.py -r, mode "default"
-    # bindsym Right exec --no-startup-id $bin/monitorctl.py -r, mode "default"
-    # bindsym o exec --no-startup-id $bin/monitorctl.py --off, mode "default"
-    # bindsym Shift+o exec --no-startup-id $bin/monitorctl.py --on, mode "default"
+    # FIXME monitor mirroring isn't supported yet in sway
+    # bindsym h       exec $bin/monitorctl.py -l, mode "default"
+    # bindsym Left    exec $bin/monitorctl.py -l, mode "default"
+    # bindsym l       exec $bin/monitorctl.py -r, mode "default"
+    # bindsym Right   exec $bin/monitorctl.py -r, mode "default"
+    # bindsym o       exec $bin/monitorctl.py --off, mode "default"
+    # bindsym Shift+o exec $bin/monitorctl.py --on, mode "default"
 
-    # bindsym 1 exec --no-startup-id $bin/monitorctl.py 0, mode "default"
-    # bindsym 2 exec --no-startup-id $bin/monitorctl.py 1, mode "default"
-    # bindsym 3 exec --no-startup-id $bin/monitorctl.py 2, mode "default"
-    # bindsym 4 exec --no-startup-id $bin/monitorctl.py 3, mode "default"
-    # bindsym 5 exec --no-startup-id $bin/monitorctl.py 4, mode "default"
-    # bindsym 6 exec --no-startup-id $bin/monitorctl.py 5, mode "default"
-    # bindsym 7 exec --no-startup-id $bin/monitorctl.py 6, mode "default"
-    # bindsym 8 exec --no-startup-id $bin/monitorctl.py 7, mode "default"
-    # bindsym 9 exec --no-startup-id $bin/monitorctl.py 8, mode "default"
+    # bindsym 1 exec $bin/monitorctl.py 0, mode "default"
+    # bindsym 2 exec $bin/monitorctl.py 1, mode "default"
+    # bindsym 3 exec $bin/monitorctl.py 2, mode "default"
+    # bindsym 4 exec $bin/monitorctl.py 3, mode "default"
+    # bindsym 5 exec $bin/monitorctl.py 4, mode "default"
+    # bindsym 6 exec $bin/monitorctl.py 5, mode "default"
+    # bindsym 7 exec $bin/monitorctl.py 6, mode "default"
+    # bindsym 8 exec $bin/monitorctl.py 7, mode "default"
+    # bindsym 9 exec $bin/monitorctl.py 8, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -382,32 +382,56 @@ set $mode_mouse Mouse: (H) Left, (J) Down, (K) Up, (L) Right, (Enter) Left Click
 
 mode "$mode_mouse" {
     # Enter for left click, Shift+Enter for right click
-    bindsym Return exec --no-startup-id swaymsg seat - cursor press button1
-    bindsym Shift+Return exec --no-startup-id swaymsg seat - cursor press button3
-    bindsym --release Return exec --no-startup-id swaymsg seat - cursor release button1
-    bindsym --release Shift+Return exec --no-startup-id swaymsg seat - cursor release button3
+    bindsym Return                 exec swaymsg seat - cursor press button1
+    bindsym Shift+Return           exec swaymsg seat - cursor press button3
+    bindsym --release Return       exec swaymsg seat - cursor release button1
+    bindsym --release Shift+Return exec swaymsg seat - cursor release button3
 
     # U and D for scroll wheel up and down
-    bindsym u exec --no-startup-id swaymsg seat - cursor press button4
-    bindsym d exec --no-startup-id swaymsg seat - cursor press button5
+    bindsym u            exec swaymsg seat - cursor press button4
+    bindsym d            exec swaymsg seat - cursor press button5
 
     # vim-style hotkeys for moving the cursor, with Alt and Shift for increasing movement speed
-    bindsym h exec --no-startup-id swaymsg seat - cursor move -- -1 0
-    bindsym j exec --no-startup-id swaymsg seat - cursor move -- 0 1
-    bindsym k exec --no-startup-id swaymsg seat - cursor move -- 0 -1
-    bindsym l exec --no-startup-id swaymsg seat - cursor move -- 1 0
-    bindsym $Alt+h exec --no-startup-id swaymsg seat - cursor move -- -10 0
-    bindsym $Alt+j exec --no-startup-id swaymsg seat - cursor move -- 0 10
-    bindsym $Alt+k exec --no-startup-id swaymsg seat - cursor move -- 0 -10
-    bindsym $Alt+l exec --no-startup-id swaymsg seat - cursor move -- 10 0
-    bindsym Shift+h exec --no-startup-id swaymsg seat - cursor move -- -25 0
-    bindsym Shift+j exec --no-startup-id swaymsg seat - cursor move -- 0 25
-    bindsym Shift+k exec --no-startup-id swaymsg seat - cursor move -- 0 -25
-    bindsym Shift+l exec --no-startup-id swaymsg seat - cursor move -- 25 0
-    bindsym Shift+$Alt+h exec --no-startup-id swaymsg seat - cursor move -- -50 0
-    bindsym Shift+$Alt+j exec --no-startup-id swaymsg seat - cursor move -- 0 50
-    bindsym Shift+$Alt+k exec --no-startup-id swaymsg seat - cursor move -- 0 -50
-    bindsym Shift+$Alt+l exec --no-startup-id swaymsg seat - cursor move -- 50 0
+    bindsym h            exec swaymsg seat - cursor move -- -100 0
+    bindsym j            exec swaymsg seat - cursor move -- 0 100
+    bindsym k            exec swaymsg seat - cursor move -- 0 -100
+    bindsym l            exec swaymsg seat - cursor move -- 100 0
+    bindsym $Alt+h       exec swaymsg seat - cursor move -- -50 0
+    bindsym $Alt+j       exec swaymsg seat - cursor move -- 0 50
+    bindsym $Alt+k       exec swaymsg seat - cursor move -- 0 -50
+    bindsym $Alt+l       exec swaymsg seat - cursor move -- 50 0
+    bindsym Shift+h      exec swaymsg seat - cursor move -- -10 0
+    bindsym Shift+j      exec swaymsg seat - cursor move -- 0 10
+    bindsym Shift+k      exec swaymsg seat - cursor move -- 0 -10
+    bindsym Shift+l      exec swaymsg seat - cursor move -- 10 0
+    bindsym Shift+$Alt+h exec swaymsg seat - cursor move -- -1 0
+    bindsym Shift+$Alt+j exec swaymsg seat - cursor move -- 0 1
+    bindsym Shift+$Alt+k exec swaymsg seat - cursor move -- 0 -1
+    bindsym Shift+$Alt+l exec swaymsg seat - cursor move -- 1 0
+
+    # warp the mouse to the given workspace
+    bindsym 1 exec "$bin/warp.py" -a $ws1
+    bindsym 2 exec "$bin/warp.py" -a $ws2
+    bindsym 3 exec "$bin/warp.py" -a $ws3
+    bindsym 4 exec "$bin/warp.py" -a $ws4
+    bindsym 5 exec "$bin/warp.py" -a $ws5
+    bindsym 6 exec "$bin/warp.py" -a $ws6
+    bindsym 7 exec "$bin/warp.py" -a $ws7
+    bindsym 8 exec "$bin/warp.py" -a $ws8
+    bindsym 9 exec "$bin/warp.py" -a $ws9
+    bindsym 0 exec "$bin/warp.py" -a $ws10
+
+    # with the shift modifier, warp the mouse but do not activate the workspace
+    bindsym Shift+1 exec "$bin/warp.py" $ws1
+    bindsym Shift+2 exec "$bin/warp.py" $ws2
+    bindsym Shift+3 exec "$bin/warp.py" $ws3
+    bindsym Shift+4 exec "$bin/warp.py" $ws4
+    bindsym Shift+5 exec "$bin/warp.py" $ws5
+    bindsym Shift+6 exec "$bin/warp.py" $ws6
+    bindsym Shift+7 exec "$bin/warp.py" $ws7
+    bindsym Shift+8 exec "$bin/warp.py" $ws8
+    bindsym Shift+9 exec "$bin/warp.py" $ws9
+    bindsym Shift+0 exec "$bin/warp.py" $ws10
 
     # back to normal: Enter or Escape
     bindsym Escape mode "default"
@@ -468,6 +492,5 @@ input type:keyboard {
 }
 
 output * {
-	background ~/.background.jpg fill
+    background ~/.background.jpg fill
 }
-
