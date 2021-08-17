@@ -69,6 +69,9 @@ exec --no-startup-id nm-applet --indicator
 # start gammastep (the wayland alternative for redshift)
 exec --no-startup-id "$bin/gammastep.sh"
 
+# start an installed polkit agent
+exec --no-startup-id "$bin/polkit-agent.sh"
+
 
 # Hotkeys for Programs
 # ---------------------
