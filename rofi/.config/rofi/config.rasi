@@ -3,4 +3,4 @@ configuration {
 	font: "Cascadia Code 10";
 }
 
-@import "themes/nord.rasi"
+@theme "themes/nord.rasi"

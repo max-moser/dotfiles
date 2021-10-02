@@ -5,7 +5,6 @@
     bordercolor: #434c5e;
     scrollbarcolor: #434c5e;
     foregroundcolor: #839496;
-    foregroundcolorinverse: #839496;
     selectioncolor: #3b4252;
     font-size: 1em;
     border-color: @separatorcolor;
@@ -17,79 +16,100 @@
     spacing: 0;
 }
 
-#listview {
-    spacing: 0;
-    scrollbar: true;
-    margin: 0;
-    dynamic: true;
-}
-
-#window {
+window {
+    text-color: @foregroundcolor;
     background-color: @backgroundcolor;
     border-color: @bordercolor;
     border: 2px;
     border-radius: 8px;
 }
 
-#mainbox {
+mainbox {
     border: 0;
     padding: 0;
     background-color: @backgroundcoloralternate;
 }
 
-#element {
+message {
+    text-color: inherit;
+    background-color: inherit;
+}
+
+textbox {
+    text-color: inherit;
+    background-color: inherit;
+}
+
+listview {
+    spacing: 0;
+    scrollbar: true;
+    margin: 0;
+    dynamic: true;
+}
+
+element {
     padding: 0.3em;
     border: 0 0 1 0;
     border-color: @separatorcolor;
     background-color: @backgroundcoloralternate;
 }
 
-#element.selected.normal {
+element.normal.normal {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element.normal.urgent {
+    // TODO revisit, make highlighted
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element.normal.active {
+    background-color: #434c5e;
+    text-color: inherit;
+}
+
+element-text.selected.normal {
     background-color: @selectioncolor;
-    text-color: @foregroundcolorinverse;
+}
+
+element.selected.normal {
+    background-color: @selectioncolor;
+    text-color: @foregroundcolor;
+}
+
+element.selected.urgent {
+    // TODO revisit, make highlighted
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element.selected.active {
+    background-color: @selectioncolor;
+    text-color: @foregroundcolor;
     border-radius: 0;
     border: 0 0 1 0;
     border-color: @separatorcolor;
 }
 
-#element.alternate.normal {
+element.alternate.normal {
     background-color: @backgroundcoloralternate;
+    text-color: inherit;
 }
 
-#element.normal.active {
+element.alternate.urgent {
+    // TODO revisit, make highlighted
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element.alternate.active {
     background-color: #434c5e;
+    text-color: inherit;
 }
 
-#element.alternate.active {
-    background-color: #434c5e;
-}
-
-#element.selected.active {
-    background-color: @selectioncolor;
-    text-color: @foregroundcolorinverse;
-    border-radius: 0;
-    border: 0 0 1 0;
-    border-color: @separatorcolor;
-}
-
-#inputbar {
-    border: 0 solid 0 solid 1 solid 0 solid;
-    margin: 0;
-    spacing: 0;
-    border-color: @separatorcolor;
-}
-
-#prompt {
-    padding: 0.5em;
-    background-color: @backgroundcoloralternate;
-    border: 0 1 0 0;
-}
-
-#entry {
-    padding: 0.5em;
-}
-
-#scrollbar {
+scrollbar {
     border: 0;
     width: 0.5em;
     handle-color: @scrollbarcolor;
@@ -97,3 +117,30 @@
     background-color: @backgroundcoloralternate;
 }
 
+inputbar {
+    border: 0 solid 0 solid 1 solid 0 solid;
+    margin: 0;
+    spacing: 0;
+    border-color: @separatorcolor;
+    background-color: @backgroundcolor;
+    text-color: @foregroundcolor;
+}
+
+prompt {
+    padding: 0.5em;
+    text-color: @foregroundcolor;
+    background-color: @backgroundcoloralternate;
+    border: 0 1 0 0;
+}
+
+entry {
+    text-color: @foregroundcolor;
+    padding: 0.5em;
+}
+
+textbox-prompt-sep {
+    expand: false;
+    str: "";
+    text-color: inherit;
+    margin: 0 0.3em 0 0;
+}
