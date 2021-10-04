@@ -93,6 +93,9 @@ set cmdheight=1
 " set buffers to hidden when they are abandoned
 set hid
 
+" make it so <C-W> won't stop at the last start of insert
+set backspace=indent,eol,nostop
+
 " enable vim to find files in subdirectories
 " (apparently may cause slowness in deep directory structures)
 " set path+=**
