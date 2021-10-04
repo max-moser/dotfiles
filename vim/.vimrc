@@ -58,6 +58,7 @@ hi CursorLine cterm=NONE ctermbg=235 guibg=grey40
 set cursorline
 
 " set display and handling of tab stops
+set expandtab
 set tabstop=4
 set shiftwidth=0
 set softtabstop=0
