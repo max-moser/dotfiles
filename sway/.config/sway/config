@@ -121,6 +121,9 @@ bindsym --release Ctrl+Print           exec $bin/screenshot.sh -co
 bindsym --release Ctrl+$Alt+Print      exec $bin/screenshot.sh -c
 bindsym --release Ctrl+Shift+Print     exec $bin/screenshot.sh -ci
 
+# virtual private networks
+bindsym $Alt+Shift+v exec $bin/vpn.sh
+
 
 # Navigation and sway Management
 # -------------------------------
