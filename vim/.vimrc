@@ -115,7 +115,8 @@ if has("clipboard")
 endif
 
 " map ^s to save the file
-noremap <C-s> :w<CR>
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-o>:w<Cr>
 
 " leader (default: backslash) + c:
 " enable / disable highlighting of current line
