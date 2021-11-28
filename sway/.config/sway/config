@@ -4,7 +4,6 @@ set $Alt Mod1
 set $Win Mod4
 set $bin $HOME/.config/sway/bin
 set $terminal alacritty
-set $explorer nemo
 set $lock_time 900
 set $dpms_time 1200
 
@@ -95,7 +94,7 @@ bindsym Ctrl+$Alt+Return               exec $terminal
 bindsym Ctrl+$Alt+t                    exec $terminal
 
 # start the file explorer
-bindsym $Win+e                         exec $explorer
+bindsym $Win+e                         exec xdg-open $HOME
 
 # start rofi (a program launcher)
 bindsym $Win+d                         exec rofi -show drun -display-drun "Application"
