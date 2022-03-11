@@ -1,5 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+path+=( "$HOME/.local/bin/" )
+
+# function for checking if a command exists
+function cmd_exists() {
+    type $1 &> /dev/null
+}
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -68,12 +74,37 @@ zstyle :omz:plugins:ssh-agent lifetime 2h
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
+ZSH_COLORIZE_STYLE="monokai"
+
+ZSH_TMUX_FIXTERM="false"
+
+ZSH_PYENV_QUIET="true"
+
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent lifetime 1h
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+# determine where nvm lives
+if [[ ! -d $HOME/.nvm  && -f /usr/share/nvm/init-nvm.sh ]]; then
+    export NVM_DIR=/usr/share/nvm
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize tmux ssh-agent gpg-agent fno)
+plugins=(git emoji urltools)
+plugins+=( colorize colored-man-pages )
+plugins+=( gpg-agent ssh-agent )
+plugins+=( encode64 extract universalarchive )
+plugins+=( nvm pyenv )
+plugins+=( fno wttr overlaps )
+
+cmd_exists tmux && plugins+="tmux"
+cmd_exists docker && plugins+="docker"
+cmd_exists docker-compose && plugins+="docker-compose"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,14 +134,19 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vim="nvim"
 alias xopen="xdg-open"
 alias pdb="python -m pdb"
 alias pish="pipenv shell"
 alias penv="pipenv"
-export EDITOR="nvim"
 
-if type pyenv > /dev/null 2>&1; then
-	eval "$(pyenv init -)"
+if cmd_exists nvim; then
+    alias vim="nvim"
+    export EDITOR="nvim"
 fi
 
+if cmd_exists exa; then
+    alias ls="exa"
+    alias lsa="ls -laah"
+    alias la="ls -lah"
+    alias l="ls -laah"
+fi
