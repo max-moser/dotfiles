@@ -1,8 +1,83 @@
 [alias]
-	s = status
-	d = diff
-	ds = diff --staged
-	co = checkout
+    s = status
+    d = diff
+    ds = diff --staged
+    co = checkout
+
 [user]
-	name = Maximilian Moser
-	email = maximilian.moser@tuwien.ac.at
+    name = Maximilian Moser
+    email = maximilian.moser@tuwien.ac.at
+
+[core]
+    pager = delta
+
+[diff]
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
+    side-by-side = true
+
+[delta]
+    navigate = false
+    features = max
+
+[delta "max"]
+    # based on the themes "hoopoe" and "zebra-dark" by https://github.com/dandavison
+    # color definitions
+    lime-green = "#078e00"
+    dark-green = "#0e2f19"
+    dark-green-2 = "#174525"
+    dark-green-3 = "#222f14"
+    dark-red = "#330f0f"
+    dark-red-2 = "#4f1917"
+    dark-pink = "#330f29"
+    dark-violet = "#271344"
+    dark-cyan = "#0d3531"
+    grey = "#aaaaaa"
+
+    # theme definition
+    dark = true
+    light = false
+    syntax-theme = Nord
+
+    # line numbers
+    line-numbers = true
+    line-numbers-zero-style = grey
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+
+    # diff highlighting
+    minus-style = syntax max.dark-red
+    minus-emph-style = syntax max.dark-red-2
+    minus-non-emph-style = minus-style
+    minus-empty-line-marker-style = minus-style
+    plus-style = syntax max.dark-green
+    plus-emph-style = syntax max.dark-green-2
+    plus-non-emph-style = plus-style
+    plus-empty-line-marker-style = plus-style
+
+    # styling of the hunks
+    hunk-label = >
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = blue
+    hunk-header-line-number-style = max.lime-green
+
+    # further styling
+    commit-style = raw
+    commit-decoration-style = blue ul ol  # {under,over}line commit messages in 'git log'
+    file-style = omit                     # hide file name headers in 'git diff'
+    zero-style = syntax normal            # style for unchanged lines
+    whitespace-error-style = max.grey
+
+    # mapping styles from raw input
+    map-styles = \
+       bold purple => syntax max.dark-pink, \
+       bold blue => syntax max.dark-violet, \
+       bold cyan => syntax max.dark-cyan, \
+       bold yellow => syntax max.dark-green-3
