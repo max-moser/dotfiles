@@ -18,6 +18,9 @@
 [merge]
     conflictstyle = diff3
 
+[rebase]
+    autoSquash = true
+
 [interactive]
     diffFilter = delta --color-only
     side-by-side = true
