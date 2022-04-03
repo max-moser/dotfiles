@@ -53,9 +53,6 @@ exec kanshi
 # screen locking & display power management
 exec swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $dpms_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$bin/lock.sh -s"
 
-# start a composite manager to avoid tearing, etc.
-exec picom -b
-
 # start waybar
 exec waybar
 
