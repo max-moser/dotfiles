@@ -155,3 +155,6 @@ if cmd_exists exa; then
     alias l="ls -laahbg"
     alias ll="ls -lhbg"
 fi
+
+# disable the beeping
+unsetopt beep
