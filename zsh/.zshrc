@@ -102,6 +102,7 @@ plugins+=( encode64 extract universalarchive )
 plugins+=( nvm pyenv )
 plugins+=( fno wttr overlaps )
 
+cmd_exists fzf && plugins+="fzf"
 cmd_exists tmux && plugins+="tmux"
 cmd_exists docker && plugins+="docker"
 cmd_exists docker-compose && plugins+="docker-compose"
