@@ -240,17 +240,17 @@ bindsym $Alt+8 workspace number $ws8
 bindsym $Alt+9 workspace number $ws9
 bindsym $Alt+0 workspace number $ws10
 
-# same with Win as modifier
-bindsym $Win+1 workspace number $ws1
-bindsym $Win+2 workspace number $ws2
-bindsym $Win+3 workspace number $ws3
-bindsym $Win+4 workspace number $ws4
-bindsym $Win+5 workspace number $ws5
-bindsym $Win+6 workspace number $ws6
-bindsym $Win+7 workspace number $ws7
-bindsym $Win+8 workspace number $ws8
-bindsym $Win+9 workspace number $ws9
-bindsym $Win+0 workspace number $ws10
+# same with Win as modifier, but without auto-back-and-forth
+bindsym $Win+1 workspace --no-auto-back-and-forth number $ws1
+bindsym $Win+2 workspace --no-auto-back-and-forth number $ws2
+bindsym $Win+3 workspace --no-auto-back-and-forth number $ws3
+bindsym $Win+4 workspace --no-auto-back-and-forth number $ws4
+bindsym $Win+5 workspace --no-auto-back-and-forth number $ws5
+bindsym $Win+6 workspace --no-auto-back-and-forth number $ws6
+bindsym $Win+7 workspace --no-auto-back-and-forth number $ws7
+bindsym $Win+8 workspace --no-auto-back-and-forth number $ws8
+bindsym $Win+9 workspace --no-auto-back-and-forth number $ws9
+bindsym $Win+0 workspace --no-auto-back-and-forth number $ws10
 
 # move focused container to workspace
 bindsym $Alt+Shift+1 move container to workspace number $ws1; workspace number $ws1
