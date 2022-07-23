@@ -65,6 +65,12 @@ tooltip * {
 	margin-right: 1em;
 }
 
+#language {
+    /* use the next best thing to 'text-transform: uppercase' for keyboard layout shorthand */
+    /* https://docs.gtk.org/gtk3/css-properties.html#font-properties */
+    font-variant: small-caps;
+}
+
 #clock {
 	font-weight: bold;
 }

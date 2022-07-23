@@ -36,7 +36,8 @@
 	},
 
 	"sway/language": {
-		"format": "{}",
+		"format": "{short}",
+        "tooltip-format": "{long}",
 		"max-length": 50
 	},
 
