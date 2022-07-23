@@ -35,6 +35,7 @@ fno () {
 				print -n "select file (1-$num_res): "
 				read sel
 				cnt=$(( cnt + 1 ))
+                [[ -z "${sel}" ]] && sel=1
 			done
 
 			selected=${results[$sel]}
