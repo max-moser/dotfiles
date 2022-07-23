@@ -3,7 +3,7 @@
 set $Alt Mod1
 set $Win Mod4
 set $bin $HOME/.config/sway/bin
-set $terminal alacritty
+set $terminal foot
 set $lock_time 900
 set $dpms_time 1200
 
