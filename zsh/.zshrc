@@ -146,8 +146,11 @@ if cmd_exists nvim; then
 fi
 
 if cmd_exists exa; then
+    # the '-b' flag shows binary size prefixes (1024^x)
+    # instead of decimal prefixes (as with '-B')
     alias ls="exa"
-    alias lsa="ls -laah"
-    alias la="ls -lah"
-    alias l="ls -laah"
+    alias lsa="ls -laahb"
+    alias la="ls -lahb"
+    alias l="ls -laahb"
+    alias ll="ls -lhb"
 fi
