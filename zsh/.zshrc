@@ -148,9 +148,10 @@ fi
 if cmd_exists exa; then
     # the '-b' flag shows binary size prefixes (1024^x)
     # instead of decimal prefixes (as with '-B')
-    alias ls="exa"
-    alias lsa="ls -laahb"
-    alias la="ls -lahb"
-    alias l="ls -laahb"
-    alias ll="ls -lhb"
+    # the '-g' flag shows the files' groups
+    alias ls="exa -g"
+    alias lsa="ls -laahbg"
+    alias la="ls -lahbg"
+    alias l="ls -laahbg"
+    alias ll="ls -lhbg"
 fi
