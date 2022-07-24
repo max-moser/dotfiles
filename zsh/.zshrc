@@ -100,7 +100,7 @@ plugins+=( colorize colored-man-pages )
 plugins+=( gpg-agent ssh-agent )
 plugins+=( encode64 extract universalarchive )
 plugins+=( nvm pyenv )
-plugins+=( fno wttr overlaps )
+plugins+=( fno wttr overlaps unlink )
 
 cmd_exists fzf && plugins+="fzf"
 cmd_exists tmux && plugins+="tmux"
