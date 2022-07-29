@@ -118,6 +118,7 @@ bindsym --release Ctrl+$Alt+Print      exec $bin/screenshot.sh -c
 bindsym --release Ctrl+Shift+Print     exec $bin/screenshot.sh -ci
 
 # virtual private networks
+# note: this auto-selects the action; forcing actions is available in the mode_vpn
 bindsym $Alt+Shift+v exec $bin/vpn.sh
 
 
@@ -438,6 +439,23 @@ mode "$mode_mouse" {
 
 bindsym $Alt+Shift+M mode "$mode_mouse"
 bindsym $Win+Shift+M mode "$mode_mouse"
+
+
+# VPN Menu
+# --------
+set $mode_vpn VPN: (C) Connect, (D) Disconnect, (A) Auto
+
+mode "$mode_vpn" {
+    # Enter for left click, Shift+Enter for right click
+    bindsym c exec "$bin/vpn.sh -c", mode "default"
+    bindsym d exec "$bin/vpn.sh -d", mode "default"
+    bindsym a exec "$bin/vpn.sh", mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Escape mode "default"
+}
+
+bindsym Ctrl+Shift+$Alt+V mode "$mode_vpn"
 
 
 
