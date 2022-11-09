@@ -1,19 +1,19 @@
-@define-color nord0 #2E3440;
-@define-color nord1 #3B4252;
-@define-color nord2 #434C5E;
-@define-color nord3 #4C566A;
-@define-color nord4 #D8DEE9;
-@define-color nord5 #E5E9F0;
-@define-color nord6 #ECEFF4;
-@define-color nord7 #8FBCBB;
-@define-color nord8 #88C0D0;
-@define-color nord9 #81A1C1;
-@define-color nord10 #5E81AC;
-@define-color nord11 #BF616A;
-@define-color nord12 #D08770;
-@define-color nord13 #EBCB8B;
-@define-color nord14 #A3BE8C;
-@define-color nord15 #B48EAD;
+@define-color nord0          #2E3440;
+@define-color nord1          #3B4252;
+@define-color nord2          #434C5E;
+@define-color nord3          #4C566A;
+@define-color nord4          #D8DEE9;
+@define-color nord5          #E5E9F0;
+@define-color nord6          #ECEFF4;
+@define-color nord7          #8FBCBB;
+@define-color nord8          #88C0D0;
+@define-color nord9          #81A1C1;
+@define-color nord10         #5E81AC;
+@define-color nord11         #BF616A;
+@define-color nord12         #D08770;
+@define-color nord13         #EBCB8B;
+@define-color nord14         #A3BE8C;
+@define-color nord15         #B48EAD;
 @define-color background     @nord0;
 @define-color background_alt @nord1;
 @define-color foreground     @nord4;
@@ -27,123 +27,134 @@
 @define-color extra          @nord15;
 
 window#waybar {
-	font-family: "Font Awesome";
-    background: @background;
+    font-family: "Font Awesome";
+    background-color: @background;
     border-top: 1px solid @background_alt;
-    color: @foreground;
+    border-radius: 0;
 }
 
 /* tooltip styling, from Nordic-bluish-accent */
 tooltip {
-	padding: 4px;
-	border-radius: 5px;
-	box-shadow: none;
-	text-shadow: 0 1px black;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow: none;
+    text-shadow: 0 1px black;
 }
 
 tooltip.background {
-	background-color: rgba(40, 45, 55, 0.93);
-	background-clip: padding-box;
-	border: 1px solid #232831;
-}
-
-tooltip decoration {
-	background-color: transparent;
+    background-color: rgba(40, 45, 55, 0.975);
+    background-clip: padding-box;
+    border: 1px solid #232831;
 }
 
 tooltip * {
-	padding: 4px;
-	background-color: transparent;
-	color: @foreground;
+    padding: 4px;
+    color: @foreground;
+}
+
+label {
+    color: @foreground;
 }
 
 /* modules on the right */
 #idle_inhibitor, #backlight, #pulseaudio, #language, #battery, #network, #clock, #tray {
-	background-color: @background;
-	margin-top: 1px;
-	margin-left: 1em;
-	margin-right: 1em;
+    background-color: @background;
+    margin-top: 1px;
+    margin-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
-#language {
+#pulseaudio.muted label {
+    color: @extra;
+}
+
+#language label {
     /* use the next best thing to 'text-transform: uppercase' for keyboard layout shorthand */
     /* https://docs.gtk.org/gtk3/css-properties.html#font-properties */
     font-variant: small-caps;
 }
 
-#clock {
-	font-weight: bold;
+#clock label {
+    font-weight: bold;
 }
 
 /* highlight low battery values */
-#battery.low {
-	color: @info;
+#battery.low label {
+    color: @info;
 }
 
-#battery.warning {
-	font-weight: bold;
-	color: @alert;
+#battery.warning label {
+    font-weight: bold;
+    color: @alert;
 }
 
-#battery.critical {
-	font-weight: bold;
-	color: @error;
+#battery.critical label {
+    font-weight: bold;
+    color: @error;
 }
 
-#battery.charging {
-	color: @ok;
+#battery.charging label {
+    color: @ok;
 }
 
 /* highlight bad network connection */
-#network.low {
-	color: @info;
+#network.low label {
+    color: @info;
 }
 
-#network.warning {
-	color: @alert;
+#network.warning label {
+    color: @alert;
 }
 
-#network.critical {
-	color: @error;
+#network.critical label {
+    color: @error;
 }
 
-#network.disconnected {
-	color: @extra;
+#network.disconnected label {
+    color: @extra;
 }
 
-#network.ethernet {
-	color: @foreground;
+#network.ethernet label {
+    color: @foreground;
 }
 
 /* sway */
 #mode {
-	background-color: @extra;
-	color: @background;
-	padding-left: 1em;
-	padding-right: 1em;
-	font-weight: bold;
+    background-color: @extra;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-weight: bold;
+}
+
+#mode label {
+    color: @background;
 }
 
 #workspaces {
-	margin-top: 1px;
+    margin-top: 1px;
 }
 
 #workspaces button {
-	color: @foreground;
-	background-color: @background;
-	min-width:1em;
+    color: @foreground;
+    background-color: @background;
+    min-width: 1em;
 }
 
 #workspaces button:hover {
-	color: @foreground_alt;
-	background-color: @extra;
+    color: @foreground_alt;
+    background-color: @ok;
 }
 
 #workspaces button.focused {
-	background-color: @background_alt;
+    background-color: @background_alt;
+}
+
+#workspaces button.focused:hover {
+    background-color: @extra;
 }
 
 #worspaces button.urgent {
-	background-color: @alert;
+    background-color: @alert;
 }
 
