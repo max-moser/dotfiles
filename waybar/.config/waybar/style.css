@@ -47,6 +47,10 @@ tooltip.background {
     border: 1px solid #232831;
 }
 
+tooltip decoration {
+    background-color: transparent;
+}
+
 tooltip * {
     padding: 4px;
     color: @foreground;
@@ -65,57 +69,57 @@ label {
     padding-right: 0.5em;
 }
 
-#pulseaudio.muted label {
+#pulseaudio.muted, #pulseaudio.muted label {
     color: @extra;
 }
 
-#language label {
+#language, #language label {
     /* use the next best thing to 'text-transform: uppercase' for keyboard layout shorthand */
     /* https://docs.gtk.org/gtk3/css-properties.html#font-properties */
     font-variant: small-caps;
 }
 
-#clock label {
+#clock, #clock label {
     font-weight: bold;
 }
 
 /* highlight low battery values */
-#battery.low label {
+#battery.low, #battery.low label {
     color: @info;
 }
 
-#battery.warning label {
+#battery.warning, #battery.warning label {
     font-weight: bold;
     color: @alert;
 }
 
-#battery.critical label {
+#battery.critical, #battery.critical label {
     font-weight: bold;
     color: @error;
 }
 
-#battery.charging label {
+#battery.charging, #battery.charging label {
     color: @ok;
 }
 
 /* highlight bad network connection */
-#network.low label {
+#network.low, #network.low label {
     color: @info;
 }
 
-#network.warning label {
+#network.warning, #network.warning label {
     color: @alert;
 }
 
-#network.critical label {
+#network.critical, #network.critical label {
     color: @error;
 }
 
-#network.disconnected label {
+#network.disconnected, #network.disconnected label {
     color: @extra;
 }
 
-#network.ethernet label {
+#network.ethernet, #network.ethernet label {
     color: @foreground;
 }
 
@@ -127,7 +131,7 @@ label {
     font-weight: bold;
 }
 
-#mode label {
+#mode, #mode label {
     color: @background;
 }
 
