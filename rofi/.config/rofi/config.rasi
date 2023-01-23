@@ -1,5 +1,5 @@
 configuration {
-	modi: "drun,combi,run";
+	modi: "drun,run";
 	font: "Cascadia Code 10";
 }
 
