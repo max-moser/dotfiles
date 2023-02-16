@@ -331,7 +331,7 @@ mode "$mode_monitor" {
     bindsym o       exec $bin/monitorctl.py --off, mode "default"
     bindsym Shift+o exec $bin/monitorctl.py --on, mode "default"
     bindsym s       exec $bin/save-monitor-profile.py -w, mode "default"
-    bindsym r       exec kanshictl restore, mode "default"
+    bindsym r       exec kanshictl reload, mode "default"
 
     bindsym 1 exec $bin/monitorctl.py 0, mode "default"
     bindsym 2 exec $bin/monitorctl.py 1, mode "default"
