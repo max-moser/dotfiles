@@ -107,6 +107,9 @@ cmd_exists tmux && plugins+="tmux"
 cmd_exists docker && plugins+="docker"
 cmd_exists docker-compose && plugins+="docker-compose"
 
+# set smart case in 'less'
+export LESS="-Ri ${LESS}"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
