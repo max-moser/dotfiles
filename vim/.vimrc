@@ -120,7 +120,15 @@ inoremap <C-s> <C-o>:w<Cr>
 
 " leader (default: backslash) + c:
 " enable / disable highlighting of current line
-nnoremap <Leader>c :set cursorline!<CR>
+nnoremap <leader>c :set cursorline!<CR>
+
+" enable shifting selected lines around with J (down) and K (up)
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" special pasting to not override pasting content after paste
+xnoremap <leader>p "_dP
+
 " -------------------------------------------- "
 "                 /mappings                    "
 " -------------------------------------------- "
