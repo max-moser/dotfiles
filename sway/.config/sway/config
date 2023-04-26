@@ -5,7 +5,7 @@ set $Win Mod4
 set $bin $HOME/.config/sway/bin
 set $terminal foot
 set $lock_time 900
-set $dpms_time 1200
+set $monitor_off_time 1200
 
 
 # General Configuration
@@ -50,7 +50,7 @@ exec_always "$bin/import-gsettings.sh"
 exec kanshi
 
 # screen locking & display power management
-exec swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $dpms_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$bin/lock.sh -s"
+exec swayidle -w timeout $lock_time "$bin/lock.sh -s" timeout $monitor_off_time 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep "$bin/lock.sh -s"
 
 # start waybar
 exec waybar
