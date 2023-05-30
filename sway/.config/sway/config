@@ -104,8 +104,7 @@ bindsym $Alt+Tab                       focus next
 bindsym $Alt+Shift+Tab                 focus prev
 
 # notification daemon control
-bindsym Ctrl+Space                     exec makoctl dismiss
-bindsym Ctrl+Shift+Space               exec makoctl dismiss -a
+bindsym Ctrl+Shift+Comma               exec makoctl dismiss
 bindsym Ctrl+Shift+Grave               exec makoctl restore
 bindsym Ctrl+Shift+Period              exec makoctl menu rofi -dmenu -p "Choose Action"
 
