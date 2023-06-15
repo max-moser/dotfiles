@@ -63,14 +63,14 @@ fi
 # perform the selected action
 # if an action was forced with no options, the selection will be empty... which is okay
 if [[ "${connect}" -eq 0 ]]; then
-	if selection=$(for vpn in "${active_vpns[@]}"; do echo "${vpn}"; done | rofi -dmenu -p "Disconnect from VPN"); then
+	if selection=$(for vpn in "${active_vpns[@]}"; do echo "${vpn}"; done | rofi -dmenu -i -p "Disconnect from VPN"); then
 		if [[ -n "${selection}" ]]; then
 			nmcli connection down "$selection"
 		fi
 	fi
 
 elif [[ "${connect}" -gt 0 ]]; then
-	if selection=$(for vpn in "${available_vpns[@]}"; do echo "${vpn}"; done | rofi -dmenu -p "Connect to VPN"); then
+	if selection=$(for vpn in "${available_vpns[@]}"; do echo "${vpn}"; done | rofi -dmenu -i -p "Connect to VPN"); then
 		if [[ -n "${selection}" ]]; then
 			nmcli connection up "$selection"
 		fi
