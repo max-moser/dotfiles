@@ -42,8 +42,8 @@ fi
 
 # query NetworkManager for available/active VPNs
 while read -r line; do
-	state=$(echo "$line" | awk '{ print $2 }')
-	name=$(echo "$line" | awk '{ $1=$2=""; print substr($0, 3) }')
+	state=$(echo "$line" | cut -d ":" -f 2)
+	name=$(echo -e "$line" | cut -d ":" -f 3- | sed -Ee 's_\\([:\])_\1_g')
 
 	if [[ "$state" =~ activated ]]; then
 		active_vpns+=( "$name" )
@@ -51,7 +51,7 @@ while read -r line; do
 	else
 		available_vpns+=( "$name" )
 	fi
-done < <(nmcli --fields=TYPE,STATE,NAME connection show | grep '^vpn\W')
+done < <(nmcli --fields=TYPE,STATE,NAME --terse connection show | grep '^vpn:')
 
 # override the action if forced
 if [[ "${force_connect}" -gt 0 ]]; then
