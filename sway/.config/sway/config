@@ -120,6 +120,9 @@ bindsym --release Ctrl+Shift+Print     exec $bin/screenshot.sh -ci
 # note: this auto-selects the action; forcing actions is available in the mode_vpn
 bindsym $Alt+Shift+v exec $bin/vpn.sh
 
+# connecting to wifi
+bindsym Ctrl+$Alt+Shift+w exec $bin/wifi.sh
+
 
 # Navigation and sway Management
 # -------------------------------
