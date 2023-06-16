@@ -45,42 +45,26 @@ if [[ "${gui}" -eq 0 ]]; then
 	command="fzf --prompt 'Connect to Wi-Fi> '"
 fi
 
-# create temporary fifo for piping the nmcli query output to the selector application
-temp=$(mktemp -u)
-mkfifo -m 600 "$temp"
-trap 'rm -f $temp' EXIT
+function select_wifi() {
+	{
+		# query NetworkManager for available wifi options
+		declare -A available_cons
+		while read -r line; do
+			signal=$(echo "$line" | cut -d ":" -f 1)
+			ssid=$(echo -e "$line" | cut -d ":" -f 2- | sed -Ee 's_\\([:\])_\1_g')
 
-(
-	# query NetworkManager for available wifi options
-	declare -A available_cons
-	while read -r line; do
-		signal=$(echo "$line" | cut -d ":" -f 1)
-		ssid=$(echo -e "$line" | cut -d ":" -f 2- | sed -Ee 's_\\([:\])_\1_g')
-
-		# deduplicate entries and filter by minimum signal
-		if [[ -n "$ssid" && "$signal" -ge "$min_signal" && -z "${available_cons[$ssid]}" ]]; then
-			available_cons+=([$ssid]="$signal")
-			echo "$ssid" >> "$temp"
-		fi
-	done < <(nmcli --fields=SIGNAL,SSID --terse device wifi list)
-
-	# the tail/selector pipeline needs at least one value
-	# otherwise, the pipeline will hang...
-	if [[ "${#available_cons}" -eq 0 ]]; then
-		echo "" >> "$temp"
-	fi
-
-	# remove the fifo to kill the 'tail --follow=name'
-	rm -f "$temp"
-) &
-pid=$!
+			# deduplicate entries and filter by minimum signal
+			if [[ -n "$ssid" && "$signal" -ge "$min_signal" && -z "${available_cons[$ssid]}" ]]; then
+				available_cons+=([$ssid]="$signal")
+				echo "$ssid"
+			fi
+		done < <(nmcli --fields=SIGNAL,SSID --terse device wifi list)
+	} | eval "$command"
+}
 
 # connect with the selected wifi (if one was selected)
-if selection=$(tail --follow=name "$temp" 2>/dev/null | eval "${command}"); then
-	if [[ -n "${selection}" ]]; then
+if selection=$(select_wifi); then
+	if [[ -n "$selection" ]]; then
 		nmcli device wifi connect "$selection"
 	fi
 fi
-
-# wait for the subshell to finish
-wait $pid
