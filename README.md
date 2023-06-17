@@ -8,15 +8,24 @@ Probably one of the highlights is the small desktop environment that it builds w
 
 * [Nord theme](https://www.nordtheme.com/)
 * Background image straight from the [Tyrolean Alps](https://www.alpbachtal.at/en)
+* Keyboard-centric operation (including moving the cursor via hotkeys)
+* Hotkeys for managing multiple monitors
+* Hotkeys for connecting to Wi-Fi or VPN
 * Screenshots
 * Screen locking
-* Keyboard-centric operation
-* Hotkeys for managing multiple monitors
 * Night-time color correction
 * etc.
 
 
-**Note**: Even though some of the configurations are meant to be used together (e.g. `sway` and `waybar`), others can be used completely stand-alone (e.g. `tmux` and `vim`).
+## Do I need to use all configs together?
+
+Even though some of the configurations are meant to be used together (e.g. `sway` and `waybar`), others can be used completely stand-alone (e.g. `tmux` and `vim`).
+
+
+## Note about outdated configs
+
+I've been using `sway` (Wayland) over `i3` (X11) for quite a while now, so the configuration for the latter has become a bit stale.
+At some point these outdated configs might fall victim to some clean-up operation.
 
 
 
@@ -37,21 +46,22 @@ Before installing the `zsh` dotfiles, make sure that [Oh My Zsh](https://github.
 # Usage
 
 
-## sway and i3
+## sway
 
-Most of the following hotkeys work for both i3 and sway, with some exceptions (e.g. the monitor management isn't implemented for i3/X11 yet).
-For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
+Many of the following hotkeys work with `i3` as well as `sway`, but the former has been
+neglected for quite a while now.
+
+*Note*: For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 
 ### Applications
 
-* `Win+e`: Application launcher
+* `Win+d`: Application launcher
 * `Win+Shift+d`: Executable launcher
 * `Win+Enter`: Launch terminal emulator
-* `Win+e`: Launch file explorer
+* `Win+e`: Launch file explorer (via `xdg-open`)
 
 ### Windows
 
-* `Win+Tab`: Switch to window
 * `Alt+h/j/k/l`: Select window to the left/up/down/right
 * `Alt+Tab`: Select next window
 * `Alt+Shift+Tab`: Select previous window
@@ -65,23 +75,36 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 ### Workspaces
 
 * `Alt+[1-9]`: Select workspace by number
+* `Win+[1-9]`: Select workspace by number (with no auto-back-and-forth)
 * `Alt+Shift+[1-9]`: Move selected window to workspace
 * `Alt+n`: Select next workspace on focused monitor
 * `Alt+p`: Select previous workspace on focused monitor
 * `Alt+Shift+n`: Create new workspace
 
+### Notifications
+
+* `Control+Shift+Comma`: Dismiss current notification
+* `Control+Shift+Grave`: Restore previous notification
+* `Control+Shift+Period`: Choose action for current notification
+
 ### Screenshots
 
-* `Print`: All screens (to new file)
+* `Print`: Current screen (to new file)
 * `Control+Print`: All screens (to clipboard)
 * `Shift+Print`: Selected area (to new file)
+* `Alt+Print`: All screens (to new file)
 * `Control+Shift+Print`: Selected area (to clipboard)
+* `Control+Alt+Print`: All screens (to clipboard)
 
 ### Menus
 
 * `Alt+r`: Resize windows (with `h/j/k/l`)
-* `Alt+M`: Monitor management (move focused monitor, ...)
+* `Alt+m`: Monitor management (move focused monitor, ...)
+* `Alt+Shift+m`: Mouse management (move cursor, click, ...)
 * `Alt+Esc`: Power/Session management (logout, lock screen, power off, ...)
+* `Alt+Shift+v`: Simple VPN management 
+* `Control+Alt+Shift+v`: Manual VPN management
+* `Control+Alt+Shift+w`: Select wi-fi connection
 
 ### Container Layouts
 
@@ -101,52 +124,11 @@ For many of these hotkeys, both `Win` and `Alt` can be used as modifier.
 
 # Requirements
 
-
-## i3
-
-### Default Programs
-
-* [`alacritty`](https://github.com/alacritty/alacritty): Terminal Emulator
-* [`nemo`](https://wiki.archlinux.org/index.php/Nemo): File Explorer
-* [`dunst`](https://github.com/dunst-project/dunst): Notification Daemon
-* [`picom`](https://github.com/yshui/picom): Compositor
-* [`polybar`](https://github.com/polybar/polybar): Status Bar
-* [`feh`](https://feh.finalrewind.org/): Image Viewer (for Desktop Background)
-* [`rofi`](https://github.com/davatorium/rofi): Application Launcher
-* [`scrot`](https://github.com/resurrecting-open-source-projects/scrot): Screen Capture Utility
-* [`i3lock`](https://github.com/i3/i3lock): Screen Locker
-* `xautolock`: Automatic Screen Locking
-
-### Script Dependencies
-
-* [`bash`](https://www.gnu.org/software/bash/): Interpreter for scripts
-* [`imagemagick`](https://imagemagick.org/index.php): Image manipulation (screen locking)
-* [`xset`](https://www.x.org/wiki/): Screen saver timings (screen locking)
-* [`xrandr`](https://www.x.org/wiki/): Monitor layouting
-* [`xinput`](https://www.x.org/wiki/): Mouse settings
-* [`xbacklight`](https://www.x.org/wiki/): Monitor backlight management (currently not in use)
-* [`gnome-screenshot`](https://gitlab.gnome.org/GNOME/gnome-screenshot): Fancier screenshot utility
-* [`jq`](https://stedolan.github.io/jq/): JSON Processor (for parsing IPC messages)
-* [`pulseaudio`](https://www.x.org/wiki/): Audio Control
-* [`polkit`](https://www.freedesktop.org/wiki/Software/polkit/): Authorization Manager (for allowing normal users to reboot, etc.)
-
-
-## polybar
-
-* `bluetoothctl` ([`bluez-utils`](http://www.bluez.org/)): For the Bluetooth module (currently disabled)
-
-
-## dunst
-
-* [`firefox`](https://www.mozilla.org/en-US/firefox/new/): Browser
-
-
 ## sway
 
 ### Default Programs
 
 * [`foot`](https://codeberg.org/dnkl/foot): Terminal Emulator
-* [`nemo`](https://wiki.archlinux.org/index.php/Nemo): File Explorer
 * [`mako`](https://wayland.emersion.fr/mako/): Notification Daemon
 * [`kanshi`](https://github.com/emersion/kanshi): Multihead Profile Manager
 * [`waybar`](https://github.com/Alexays/Waybar/): Status Bar
@@ -210,4 +192,3 @@ gtk-theme-name="Nordic-bluish-accent"
 gtk-application-prefer-dark-theme = true
 gtk-theme-name = Nordic-bluish-accent
 ```
-
