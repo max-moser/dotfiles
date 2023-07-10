@@ -129,6 +129,14 @@ vnoremap K :m '<-2<CR>gv=gv
 " special pasting to not override pasting content after paste
 xnoremap <leader>p "_dP
 
+" move to start/end of line with H/L
+nnoremap H ^
+nnoremap L $
+
+" don't leave visual mode when indenting
+xnoremap > >gv
+xnoremap < <gv
+
 " -------------------------------------------- "
 "                 /mappings                    "
 " -------------------------------------------- "
