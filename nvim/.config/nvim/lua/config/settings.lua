@@ -27,9 +27,6 @@ opt.incsearch = true
 -- automatically save before commands like :next and :make
 opt.autowrite = true
 
--- hide buffers when they are abandoned
-opt.hidden = true
-
 -- enable mouse usage (all modes)
 opt.mouse = "a"
 
@@ -85,5 +82,11 @@ opt.completeopt = {"menu", "menuone", "noselect", "preview"}
 -- ask the user for confirmation on some actions instead of just denying them
 opt.confirm = true
 
+-- abandon buffers when they're unloaded (e.g. closed), after confirmation
+opt.hidden = false
+
 -- enable true color support
 opt.termguicolors = true
+
+-- timeout for command sequences to complete
+opt.timeoutlen = 750

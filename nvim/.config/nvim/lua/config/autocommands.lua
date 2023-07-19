@@ -6,6 +6,7 @@ local api = vim.api
 
 -- jump to the last position when reopening a file
 api.nvim_create_autocmd("BufReadPost", {
+    desc = "Jump to the last position when reopening a file",
     group = api.nvim_create_augroup("last_location", { clear = true }),
     callback = function()
         local exclude = { "gitcommit" }
@@ -19,5 +20,16 @@ api.nvim_create_autocmd("BufReadPost", {
         if mark[1] > 0 and mark[1] < line_count then
             pcall(api.nvim_win_set_cursor, 0, mark)
         end
-    end
+    end,
+})
+
+-- remap 'h' and 'l' to something useful in netrw
+api.nvim_create_autocmd("FileType", {
+    desc = "Remap 'h' and 'l' to file system navigation in netrw",
+    pattern = "netrw",
+    group = api.nvim_create_augroup("netrw_mappings", { clear = true }),
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, "", "h", "-", {})
+        vim.api.nvim_buf_set_keymap(0, "", "l", "<CR>", {})
+    end,
 })
