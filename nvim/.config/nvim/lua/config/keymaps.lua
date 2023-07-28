@@ -42,10 +42,11 @@ map("n", "<Leader>fe", ":Explore<CR>", { silent = true })
 -- emacs/shell-like hotkeys for moving around text in insert mode
 map("i", "<C-a>", "<Esc>0i")
 map("i", "<C-e>", "<Esc>A")
-map("i", "<C-u>", "<Esc>d0i")
+map("i", "<C-u>", "<Esc>ld0i")
 map("i", "<C-k>", "<Esc>ld$a")
 map("i", "<M-b>", "<Esc>bi")
 map("i", "<M-f>", "<Esc>eb2wi")
+map("i", "<M-BS>", "<C-w>")
 
 
 -- ----------------------- --
