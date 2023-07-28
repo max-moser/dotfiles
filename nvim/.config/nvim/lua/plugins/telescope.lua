@@ -29,6 +29,16 @@ return {
                     }
                 }
             },
+            pickers = {
+                buffers = {
+                    sort_mru = true,
+                    mappings = {
+                        i = {
+                            ["<C-D>"] = "delete_buffer",
+                        }
+                    }
+                }
+            },
             extensions = {
                 fzf = {
                     fuzzy = true,
