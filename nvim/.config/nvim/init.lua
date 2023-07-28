@@ -49,8 +49,11 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
         local buffers = vim.api.nvim_list_bufs()
         if #buffers > 1 then
             for _, buf in pairs(buffers) do
-                if vim.api.nvim_buf_get_name(buf) == cwd then
-                    vim.cmd.bdelete({project_dir, bang = true})
+                local buf_name = vim.api.nvim_buf_get_name(buf)
+                local buf_name_tail = vim.fn.fnamemodify(buf_name, ":t")
+                local proj_dir_tail = vim.fn.fnamemodify(project_dir, ":t")
+                if buf_name_tail == proj_dir_tail and buf ~= cur_buf and buf_name_tail ~= "" then
+                    vim.cmd.bdelete({vim.api.nvim_buf_get_name(buf), bang = true})
                 end
             end
         end
