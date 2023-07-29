@@ -3,6 +3,7 @@
 -- -------- --
 
 local opt = vim.opt
+local fn = vim.fn
 
 -- tell vim we're usually using a dark background
 opt.background = "dark"
@@ -90,3 +91,45 @@ opt.termguicolors = true
 
 -- timeout for command sequences to complete
 opt.timeoutlen = 750
+
+-- simple tab names without the file paths in it
+function SimpleTabline()
+    local tabline = ""
+    local tab_names = {}
+    local min_tab_name_len = 16
+
+    for tab = 1, fn.tabpagenr("$"), 1 do
+        -- for the label of the tab, we use the name of the buffer in the focused window
+        -- if it's a file name, we omit all parts of its path
+        local buf_list = fn.tabpagebuflist(tab)
+        local win_num = fn.tabpagewinnr(tab)
+        local buf_name = fn.bufname(buf_list[win_num])
+        local tab_name = fn.fnamemodify(buf_name, ":t")
+        if tab_name == "" then
+            tab_name = "[No Name]"
+        end
+        min_tab_name_len = math.max(min_tab_name_len, #tab_name)
+        tab_names[tab] = tab_name
+    end
+
+    for tab, tab_name in ipairs(tab_names) do
+        local label
+        if fn.tabpagenr() == tab then
+            label = "%#TabLineSel# "
+        else
+            label = "%#TabLine# "
+        end
+
+        -- number the tab page (for mouse clicks)
+        label = string.format("%s%%%sT", label, tab)
+
+        -- pad all labels to the same length
+        local padding = string.rep(" ", (min_tab_name_len - #tab_name + 1))
+        label = string.format("%s%s%s", label, tab_name, padding)
+        tabline = tabline .. label
+    end
+
+    return tabline .. "%#TabLineFill#%T"
+end
+
+opt.tabline = "%!v:lua.SimpleTabline()"
