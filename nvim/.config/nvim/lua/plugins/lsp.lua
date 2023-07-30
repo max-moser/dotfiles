@@ -14,7 +14,6 @@ return {
         {"williamboman/mason-lspconfig.nvim"},
 
         -- autocompletion
-        -- TODO set up "supertab"
         {"hrsh7th/nvim-cmp"},
         {"hrsh7th/cmp-nvim-lsp"},
         {"L3MON4D3/LuaSnip"},
@@ -25,5 +24,18 @@ return {
             lsp.default_keymaps({buffer = buf})
         end)
         lsp.setup()
+
+        -- `cmp` needs to be set up after `lsp-zero`
+        local cmp = require("cmp")
+        cmp.setup({
+            mapping = {
+                -- allow `Enter` and `Tab` to confirm completion
+                ["<CR>"] = cmp.mapping.confirm({select = false}),
+                ["<Tab>"] = cmp.mapping.confirm({select = false}),
+
+                -- `Ctrl-Space` to trigger completion menu
+                ["<C-Space>"] = cmp.mapping.complete(),
+            }
+        })
     end,
 }
