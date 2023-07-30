@@ -133,3 +133,8 @@ function SimpleTabline()
 end
 
 opt.tabline = "%!v:lua.SimpleTabline()"
+
+-- treesitter-powered folding
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false

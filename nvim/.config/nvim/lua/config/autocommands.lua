@@ -33,3 +33,11 @@ api.nvim_create_autocmd("FileType", {
         vim.api.nvim_buf_set_keymap(0, "", "l", "<CR>", {})
     end,
 })
+
+-- update folds (and close them) after opening a buffer
+-- https://github.com/nvim-telescope/telescope.nvim/issues/699
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    desc = "Update folds after opening a file",
+    pattern = "*",
+    command = "normal zx zR",
+})
