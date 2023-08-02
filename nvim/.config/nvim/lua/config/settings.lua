@@ -92,6 +92,9 @@ opt.termguicolors = true
 -- timeout for command sequences to complete
 opt.timeoutlen = 750
 
+-- the key for opening the command-line window (history) in cmdline mode
+opt.cedit = "<C-h>"
+
 -- simple tab names without the file paths in it
 function SimpleTabline()
     local tabline = ""

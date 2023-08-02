@@ -48,6 +48,12 @@ map({"i", "c"}, "<M-b>", "<S-Left>")
 map({"i", "c"}, "<M-f>", "<S-Right>")
 map({"i", "c"}, "<M-BS>", "<C-w>")
 
+-- disable the hotkeys to hell
+-- (the command/search history can always be brought up with the 'cedit' key in cmdline mode)
+map("", "q:", "<Nop>")
+map("", "q/", "<Nop>")
+map("", "q?", "<Nop>")
+
 
 -- ----------------------- --
 -- tab & buffer management --
