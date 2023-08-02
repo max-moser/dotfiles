@@ -8,12 +8,11 @@ end
 
 -- if the clipboard is available make `ctrl-c` work
 if vim.fn.has("clipboard") then
-    map("v", "<C-c>", '"*y :let @+=@*<CR>', { silent = true })
+    map("v", "<C-c>", '"*y <Cmd>let @+=@*<CR>')
 end
 
 -- save the file with `ctrl-s`
-map("n", "<C-s>", ":w<CR>")
-map("i", "<C-s>", "<C-o>:w<CR>")
+map({"i", "n"}, "<C-s>", "<Cmd>w<CR>")
 
 -- shift-tab to remove one level of indent in insert mode
 map("i", "<S-Tab>", "<C-d>")
@@ -34,10 +33,10 @@ map("x", ">", ">gv")
 map("x", "<", "<gv")
 
 -- remove highlighting of search results
-map("n", "<Leader><Esc>", ":nohlsearch<CR>", { silent = true })
+map("n", "<Leader><Esc>", "<Cmd>nohlsearch<CR>")
 
 -- open up the file explorer (netrw)
-map("n", "<Leader>fe", ":Explore<CR>", { silent = true })
+map("n", "<Leader>fe", "<Cmd>Explore<CR>")
 
 -- emacs/shell-like hotkeys for moving around text in insert & cmdline mode
 map("i", "<C-a>", "<Esc>0i")
@@ -53,20 +52,20 @@ map({"i", "c"}, "<M-BS>", "<C-w>")
 -- ----------------------- --
 -- tab & buffer management --
 -- ----------------------- --
-map("n", "<Leader>T", ":tabnew<CR>", { silent = true })
-map("n", "<Leader>tn", ":tabnew<CR>", { silent = true })
-map("n", "<Leader>tq", ":tabclose<CR>", { silent = true })
-map("n", "<Leader>tc", ":tabclose<CR>", { silent = true })
-map("n", "<Leader>q", ":bdelete<CR>", { silent = true })
-map("n", "<Leader>Q", ":quit<CR>", { silent = true })
+map("n", "<Leader>T", "<Cmd>tabnew<CR>")
+map("n", "<Leader>tn", "<Cmd>tabnew<CR>")
+map("n", "<Leader>tq", "<Cmd>tabclose<CR>")
+map("n", "<Leader>tc", "<Cmd>tabclose<CR>")
+map("n", "<Leader>q", "<Cmd>bdelete<CR>")
+map("n", "<Leader>Q", "<Cmd>quit<CR>")
 
 -- `ctrl-shift-{h,l}` for switching to the next/previous tab
 map("n", "<C-h>", "gT")
 map("n", "<C-l>", "gt")
 
 -- `ctrl-shift-{h,l}` for switching to the next/previous buffer
-map("n", "<C-S-h>", ":bprevious<CR>", { silent = true })
-map("n", "<C-S-l>", ":bnext<CR>", { silent = true })
+map("n", "<C-S-h>", "<Cmd>bprevious<CR>")
+map("n", "<C-S-l>", "<Cmd>bnext<CR>")
 
 
 -- --------------------- --
