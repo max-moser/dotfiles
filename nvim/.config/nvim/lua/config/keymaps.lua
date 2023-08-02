@@ -39,16 +39,15 @@ map("n", "<Leader><Esc>", ":nohlsearch<CR>", { silent = true })
 -- open up the file explorer (netrw)
 map("n", "<Leader>fe", ":Explore<CR>", { silent = true })
 
--- emacs/shell-like hotkeys for moving around text in insert mode
+-- emacs/shell-like hotkeys for moving around text in insert & cmdline mode
 map("i", "<C-a>", "<Esc>0i")
+map("c", "<C-a>", "<C-b>")
 map("i", "<C-e>", "<Esc>A")
-map("i", "<C-u>", "<Esc>v0di")
-map("i", "<C-k>", "<Esc>v$hda")
-map("i", "<C-b>", "<Esc>ha")
-map("i", "<C-f>", "<Esc>la")
-map("i", "<M-b>", "<Esc>bi")
-map("i", "<M-f>", "<Esc>eb2wi")
-map("i", "<M-BS>", "<C-w>")
+map({"i", "c"}, "<C-b>", "<Left>")
+map({"i", "c"}, "<C-f>", "<Right>")
+map({"i", "c"}, "<M-b>", "<S-Left>")
+map({"i", "c"}, "<M-f>", "<S-Right>")
+map({"i", "c"}, "<M-BS>", "<C-w>")
 
 
 -- ----------------------- --
