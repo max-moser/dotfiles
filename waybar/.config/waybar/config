@@ -78,10 +78,17 @@
 	"clock": {
 		"interval": 1,
 		"format": "{:%H:%M}",
-		"format-alt": "{:[%Y-%m-%d]  %H:%M:%S}",
-		"tooltip-format": "<big>{:%B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
-		"today-format": "<b><u>{}</u></b>",
-		"locale": "en_US.UTF-8"
+		"format-alt": "{:[%Y-%m-%d]  %H:%M:%OS}",
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"calendar": {
+			"mode": "month",
+			"weeks-pos": "right",
+			"format": {
+				"weeks": "| <i>{}</i>",
+				"months": "<b>{}</b>",
+				"today": "<b>{}</b>"
+			}
+		}
 	},
 
 	"tray": {
