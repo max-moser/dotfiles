@@ -141,3 +141,8 @@ opt.tabline = "%!v:lua.SimpleTabline()"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
+
+-- configuration for neovide
+if vim.g.neovide then
+    opt.title = true
+end
