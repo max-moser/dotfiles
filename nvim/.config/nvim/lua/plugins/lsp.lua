@@ -35,6 +35,9 @@ return {
 
                 -- `Ctrl-Space` to trigger completion menu
                 ["<C-Space>"] = cmp.mapping.complete(),
+            },
+            completion = {
+                completeopt = "menu,menuone,noinsert"
             }
         })
     end,
