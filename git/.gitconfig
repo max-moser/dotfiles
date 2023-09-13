@@ -84,3 +84,5 @@
        bold blue => syntax max.dark-violet, \
        bold cyan => syntax max.dark-cyan, \
        bold yellow => syntax max.dark-green-3
+[push]
+	autoSetupRemote = true
