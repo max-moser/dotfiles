@@ -25,8 +25,8 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 map("x", "<Leader>p", '"_dP')
 
 -- move to start/end of line with H/L
-map("n", "H", "^")
-map("n", "L", "$")
+map({"v", "n"}, "H", "^")
+map({"v", "n"}, "L", "$")
 
 -- don't leave visual mode when indenting
 map("x", ">", ">gv")
