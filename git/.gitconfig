@@ -88,3 +88,5 @@
     autoSetupRemote = true
 [rerere]
     enabled = true
+[branch]
+    sort = -committerdate
