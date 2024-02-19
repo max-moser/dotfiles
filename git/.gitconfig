@@ -80,9 +80,9 @@
 
     # mapping styles from raw input
     map-styles = \
-       bold purple => syntax max.dark-pink, \
-       bold blue => syntax max.dark-violet, \
-       bold cyan => syntax max.dark-cyan, \
-       bold yellow => syntax max.dark-green-3
+        bold purple => syntax max.dark-pink, \
+        bold blue => syntax max.dark-violet, \
+        bold cyan => syntax max.dark-cyan, \
+        bold yellow => syntax max.dark-green-3
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
