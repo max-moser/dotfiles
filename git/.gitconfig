@@ -86,3 +86,5 @@
         bold yellow => syntax max.dark-green-3
 [push]
     autoSetupRemote = true
+[rerere]
+    enabled = true
