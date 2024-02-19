@@ -42,7 +42,7 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
     if vim.fn.filereadable(session_file) == 1 then
         -- close the buffer that's open before restoring the session
         local cur_buf = vim.api.nvim_get_current_buf()
-        vim.cmd.source(session_file)
+        vim.cmd("silent! source " .. session_file)
         vim.cmd.bdelete({cur_buf, bang = true })
 
         -- sometimes it happens that there's another open buffer for the project dir
