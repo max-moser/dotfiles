@@ -3,6 +3,7 @@ return {
     branch = "v3.x",
     dependencies = {
         {"neovim/nvim-lspconfig"},
+        {"folke/neodev.nvim"},
 
         -- mason for installing new LSP servers
         {
@@ -32,6 +33,9 @@ return {
             map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
         end)
 
+        -- `neodev` takes care of setting up the Lua LS for neovim,
+        -- needs to be set up before `lspconfig`
+        require("neodev").setup({})
         require("mason").setup({})
         require("mason-lspconfig").setup({
             ensure_installed = {},

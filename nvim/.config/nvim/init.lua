@@ -1,6 +1,3 @@
--- workaround for the "undefined global `vim`" warning all over the place
-local vim = vim
-
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
