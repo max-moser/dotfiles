@@ -1,6 +1,6 @@
 return {
     "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
         {"neovim/nvim-lspconfig"},
 
@@ -19,11 +19,16 @@ return {
         {"L3MON4D3/LuaSnip"},
     },
     init = function()
-        local lsp = require("lsp-zero").preset({})
-        lsp.on_attach(function(client, buf)
-            lsp.default_keymaps({buffer = buf})
+        local lsp_zero = require("lsp-zero")
+        lsp_zero.on_attach(function(client, buf)
+            lsp_zero.default_keymaps({buffer = buf})
         end)
-        lsp.setup()
+
+        require("mason").setup({})
+        require("mason-lspconfig").setup({
+            ensure_installed = {},
+            handlers = { lsp_zero.default_setup }
+        })
 
         -- `cmp` needs to be set up after `lsp-zero`
         local cmp = require("cmp")
