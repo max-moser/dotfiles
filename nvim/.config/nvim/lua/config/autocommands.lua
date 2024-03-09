@@ -38,6 +38,11 @@ api.nvim_create_autocmd("FileType", {
 -- https://github.com/nvim-telescope/telescope.nvim/issues/699
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
     desc = "Update folds after opening a file",
-    pattern = "*",
-    command = "normal zx zR",
+    callback = function ()
+        if vim.opt.foldmethod:get() == "expr" then
+            vim.schedule(function ()
+                vim.opt.foldmethod = "expr"
+            end)
+        end
+    end
 })
