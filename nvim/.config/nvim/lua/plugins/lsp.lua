@@ -24,13 +24,14 @@ return {
         lsp_zero.on_attach(function(client, buf)
             lsp_zero.default_keymaps({buffer = buf})
 
-            local map = function (keys, func, desc)
-                vim.keymap.set("n", keys, func, { buffer = buf, desc = "LSP: " .. desc })
+            local map = function (mode, keys, func, desc)
+                vim.keymap.set(mode, keys, func, { buffer = buf, desc = "LSP: " .. desc })
             end
 
             -- utilize telescope to improve code navigation hotkeys
-            map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+            map("n", "gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+            map("n", "gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+            map("i", "<C-S-Space>", vim.lsp.buf.signature_help, "Signature Help")
         end)
 
         -- `neodev` takes care of setting up the Lua LS for neovim,
