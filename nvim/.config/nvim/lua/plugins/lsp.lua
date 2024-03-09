@@ -30,8 +30,8 @@ return {
         cmp.setup({
             mapping = {
                 -- allow `Enter` and `Tab` to confirm completion
-                ["<CR>"] = cmp.mapping.confirm({select = false}),
-                ["<Tab>"] = cmp.mapping.confirm({select = false}),
+                ["<CR>"] = cmp.mapping.confirm({select = false, behavior = cmp.ConfirmBehavior.Replace}),
+                ["<Tab>"] = cmp.mapping.confirm({select = false, behavior = cmp.ConfirmBehavior.Replace}),
 
                 -- `Ctrl-Space` to trigger completion menu
                 ["<C-Space>"] = cmp.mapping.complete(),
