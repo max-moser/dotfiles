@@ -137,9 +137,10 @@ end
 
 opt.tabline = "%!v:lua.SimpleTabline()"
 
--- treesitter-powered folding
+-- setting up folds
+-- (treesitter will only be used if the file is small enough, cf. `treesitter.lua`)
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "0"
 opt.foldenable = false
 
 -- configuration for neovide
