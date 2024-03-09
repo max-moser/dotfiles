@@ -22,6 +22,14 @@ return {
         local lsp_zero = require("lsp-zero")
         lsp_zero.on_attach(function(client, buf)
             lsp_zero.default_keymaps({buffer = buf})
+
+            local map = function (keys, func, desc)
+                vim.keymap.set("n", keys, func, { buffer = buf, desc = "LSP: " .. desc })
+            end
+
+            -- utilize telescope to improve code navigation hotkeys
+            map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
         end)
 
         require("mason").setup({})
