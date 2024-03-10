@@ -34,6 +34,10 @@ opt.mouse = "a"
 -- enable smart indenting (reacts to the language's syntax)
 opt.smartindent = true
 
+-- wrap lines, and have wrapped lines indented as well
+opt.wrap = true
+opt.breakindent = true
+
 -- show trailing whitespaces with '-' and tabs with '>'
 opt.list = true
 opt.listchars = { tab = "> ", trail = "-", nbsp = "+" }
