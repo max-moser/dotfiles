@@ -1,12 +1,12 @@
 -- define a list of color schemes to load
 local default_colorscheme = "catppuccin"
 local colorschemes = {
-    afterglow="danilo-augusto/vim-afterglow",
-    gruvbox="ellisonleao/gruvbox.nvim",
-    deus="ajmwagar/vim-deus",
-    nord="shaunsingh/nord.nvim",
-    catppuccin="catppuccin/nvim",
-    caret="projekt0n/caret.nvim",
+    afterglow = "danilo-augusto/vim-afterglow",
+    gruvbox = "ellisonleao/gruvbox.nvim",
+    deus = "ajmwagar/vim-deus",
+    nord = "shaunsingh/nord.nvim",
+    catppuccin = "catppuccin/nvim",
+    caret = "projekt0n/caret.nvim",
 }
 
 local plugins = {
@@ -17,9 +17,8 @@ local plugins = {
         priority = 1000,
         config = function()
             vim.cmd.colorscheme(default_colorscheme)
-        end
+        end,
     },
-
 }
 
 -- add the above defined color schemes to the list of plugins

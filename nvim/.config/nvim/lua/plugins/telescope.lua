@@ -26,8 +26,9 @@ return {
                         ["<C-e>"] = false,
                         ["<M-b>"] = false,
                         ["<M-f>"] = false,
-                    }
-                }
+                        ["<M-BS>"] = false,
+                    },
+                },
             },
             pickers = {
                 buffers = {
@@ -35,9 +36,9 @@ return {
                     mappings = {
                         i = {
                             ["<C-D>"] = "delete_buffer",
-                        }
-                    }
-                }
+                        },
+                    },
+                },
             },
             extensions = {
                 fzf = {
@@ -45,7 +46,7 @@ return {
                     override_generic_sorter = true,
                     override_file_sorter = true,
                     case_mode = "smart_case",
-                }
+                },
             },
         },
     },

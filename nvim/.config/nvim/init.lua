@@ -40,7 +40,7 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
         -- close the buffer that's open before restoring the session
         local cur_buf = vim.api.nvim_get_current_buf()
         vim.cmd("silent! source " .. session_file)
-        vim.cmd.bdelete({cur_buf, bang = true })
+        vim.cmd.bdelete({ cur_buf, bang = true })
 
         -- sometimes it happens that there's another open buffer for the project dir
         local buffers = vim.api.nvim_list_bufs()
@@ -50,7 +50,7 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
                 local buf_name_tail = vim.fn.fnamemodify(buf_name, ":t")
                 local proj_dir_tail = vim.fn.fnamemodify(project_dir, ":t")
                 if buf_name_tail == proj_dir_tail and buf ~= cur_buf and buf_name_tail ~= "" then
-                    vim.cmd.bdelete({vim.api.nvim_buf_get_name(buf), bang = true})
+                    vim.cmd.bdelete({ vim.api.nvim_buf_get_name(buf), bang = true })
                 end
             end
         end
@@ -62,9 +62,8 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
         callback = function()
             if vim.api.nvim_get_vvar("dying") == 0 then
                 -- only save the session if vim is being quit normally
-                vim.cmd.mksession({session_file, bang = true })
+                vim.cmd.mksession({ session_file, bang = true })
             end
         end,
-
     })
 end

@@ -82,7 +82,7 @@ opt.backspace = { "indent", "eol", "nostop" }
 opt.clipboard = "unnamedplus"
 
 -- options for the completion menu
-opt.completeopt = {"menu", "menuone", "noselect", "preview"}
+opt.completeopt = { "menu", "menuone", "noselect", "preview" }
 
 -- ask the user for confirmation on some actions instead of just denying them
 opt.confirm = true

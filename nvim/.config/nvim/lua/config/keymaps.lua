@@ -12,7 +12,7 @@ if vim.fn.has("clipboard") then
 end
 
 -- save the file with `ctrl-s`
-map({"i", "n"}, "<C-s>", "<Cmd>w<CR>")
+map({ "i", "n" }, "<C-s>", "<Cmd>w<CR>")
 
 -- shift-tab to remove one level of indent in insert mode
 map("i", "<S-Tab>", "<C-d>")
@@ -25,8 +25,8 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 map("x", "<Leader>p", '"_dP')
 
 -- move to start/end of line with H/L
-map({"v", "n"}, "H", "^")
-map({"v", "n"}, "L", "$")
+map({ "v", "n" }, "H", "^")
+map({ "v", "n" }, "L", "$")
 
 -- don't leave visual mode when indenting
 map("x", ">", ">gv")
@@ -42,18 +42,17 @@ map("n", "<Leader>fe", "<Cmd>Explore<CR>")
 map("i", "<C-a>", "<Esc>0i")
 map("c", "<C-a>", "<C-b>")
 map("i", "<C-e>", "<Esc>A")
-map({"i", "c"}, "<C-b>", "<Left>")
-map({"i", "c"}, "<C-f>", "<Right>")
-map({"i", "c"}, "<M-b>", "<S-Left>")
-map({"i", "c"}, "<M-f>", "<S-Right>")
-map({"i", "c"}, "<M-BS>", "<C-w>")
+map({ "i", "c" }, "<C-b>", "<Left>")
+map({ "i", "c" }, "<C-f>", "<Right>")
+map({ "i", "c" }, "<M-b>", "<S-Left>")
+map({ "i", "c" }, "<M-f>", "<S-Right>")
+map({ "i", "c" }, "<M-BS>", "<C-w>")
 
 -- disable the hotkeys to hell
 -- (the command/search history can always be brought up with the 'cedit' key in cmdline mode)
 map("", "q:", "<Nop>")
 map("", "q/", "<Nop>")
 map("", "q?", "<Nop>")
-
 
 -- ----------------------- --
 -- tab & buffer management --
@@ -72,7 +71,6 @@ map("n", "<C-l>", "gt")
 -- `ctrl-shift-{h,l}` for switching to the next/previous buffer
 map("n", "<C-S-h>", "<Cmd>bprevious<CR>")
 map("n", "<C-S-l>", "<Cmd>bnext<CR>")
-
 
 -- --------------------- --
 -- telescope keybindings --

@@ -2,29 +2,29 @@ return {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
     dependencies = {
-        {"neovim/nvim-lspconfig"},
-        {"folke/neodev.nvim"},
+        { "neovim/nvim-lspconfig" },
+        { "folke/neodev.nvim" },
 
         -- mason for installing new language servers
         {
             "williamboman/mason.nvim",
-            build = function ()
+            build = function()
                 pcall(vim.cmd, "MasonUpdate")
             end,
         },
-        {"williamboman/mason-lspconfig.nvim"},
+        { "williamboman/mason-lspconfig.nvim" },
 
         -- autocompletion
-        {"hrsh7th/nvim-cmp"},
-        {"hrsh7th/cmp-nvim-lsp"},
-        {"L3MON4D3/LuaSnip"},
+        { "hrsh7th/nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "L3MON4D3/LuaSnip" },
     },
     init = function()
         local lsp_zero = require("lsp-zero")
         lsp_zero.on_attach(function(client, buf)
-            lsp_zero.default_keymaps({buffer = buf})
+            lsp_zero.default_keymaps({ buffer = buf })
 
-            local map = function (mode, keys, func, desc)
+            local map = function(mode, keys, func, desc)
                 vim.keymap.set(mode, keys, func, { buffer = buf, desc = "LSP: " .. desc })
             end
 

@@ -9,7 +9,7 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
 
-                disable = function (lang, buf)
+                disable = function(lang, buf)
                     -- i prefer the built-in highlighting of 'git rebase' commands
                     if lang == "git_rebase" then
                         return true
@@ -26,7 +26,6 @@ return {
                         if stats.size > max_filesize then
                             -- disable if the file is too large
                             return true
-
                         elseif vim.opt.foldexpr:get() == "0" and stats.size < max_filesize_folds then
                             -- if the file is small enough, enable treesitter-based folds
                             vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -34,7 +33,7 @@ return {
                     end
 
                     return false
-                end
+                end,
             },
             incremental_selection = {
                 enable = true,
@@ -46,5 +45,5 @@ return {
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end,
-    }
+    },
 }
