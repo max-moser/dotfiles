@@ -77,8 +77,8 @@
 
 	"clock": {
 		"interval": 1,
-		"format": "{:%H:%M}",
-		"format-alt": "{:[%Y-%m-%d]  %H:%M:%OS}",
+		"format": "{:%R}",
+		"format-alt": "[{:%F]  %T}",
 		"tooltip-format": "<tt>{calendar}</tt>",
 		"calendar": {
 			"mode": "month",
