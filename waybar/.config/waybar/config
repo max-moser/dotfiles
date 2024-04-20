@@ -49,8 +49,8 @@
 		},
 		"format-full": "⚡ {capacity}%",
 		"format-discharging": "🔋 {capacity}%",
-		"format-charging": " {capacity}%",
-		"format-plugged": " {capacity}%",
+		"format-charging": "🔌 {capacity}%",
+		"format-plugged": "🔌 {capacity}%",
 		"format-time": "{H}h {M}min"
 	},
 
@@ -96,4 +96,3 @@
 		"spacing": 8
 	}
 }
-
