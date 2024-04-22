@@ -68,7 +68,9 @@ set sidescrolloff=5
 set ruler
 
 " keep an undo-file for edited files s.t. operations can be undone after opening the file
+" the trailing double slash in undodir causes special handling of file names
 set undofile
+set undodir=~/.cache/vim/undo//
 
 " get rid of the nasty sounds
 set noerrorbells
