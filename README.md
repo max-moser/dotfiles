@@ -102,7 +102,7 @@ neglected for quite a while now.
 * `Alt+m`: Monitor management (move focused monitor, ...)
 * `Alt+Shift+m`: Mouse management (move cursor, click, ...)
 * `Alt+Esc`: Power/Session management (logout, lock screen, power off, ...)
-* `Alt+Shift+v`: Simple VPN management 
+* `Alt+Shift+v`: Simple VPN management
 * `Control+Alt+Shift+v`: Manual VPN management
 * `Control+Alt+Shift+w`: Select wi-fi connection
 
@@ -120,6 +120,10 @@ neglected for quite a while now.
 * `Alt+Space`: Toggle focus floating windows
 * `Alt+Shift+Space`: Toggle floating layout for current window
 
+
+### Other
+
+* `Alt+Shift+p`: Select an output and mirror/present it
 
 
 # Requirements
@@ -152,6 +156,7 @@ neglected for quite a while now.
 * [`jq`](https://stedolan.github.io/jq/): JSON Processor (for parsing IPC messages)
 * [`polkit`](https://www.freedesktop.org/wiki/Software/polkit/): Authorization Manager (for allowing normal users to reboot, etc.)
 * [`geoclue`](https://www.freedesktop.org/wiki/Software/GeoClue/): Geoinformation service (for color correction)
+* [`wl-mirror`](https://github.com/Ferdi265/wl-mirror): Tool for mirroring outputs
 
 
 ## waybar
