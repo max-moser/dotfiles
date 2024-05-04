@@ -70,7 +70,6 @@
 		"tooltip-format-wifi": "{ipaddr}/{cidr}  -  Signal: {signalStrength}%",
 		"tooltip-format-ethernet": "{ipaddr}/{cidr}  -  Interface: {ifname}",
 		"tooltip-format-disconnected": "Disconnected",
-		// TODO: open NetworkManager front-end on left-click
 		"interval": 10,
 		"on-click-right": "nm-connection-editor"
 	},
