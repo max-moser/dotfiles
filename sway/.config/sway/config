@@ -123,6 +123,9 @@ bindsym $Alt+Shift+v exec $bin/vpn.sh
 # connecting to wifi
 bindsym Ctrl+$Alt+Shift+w exec $bin/wifi.sh
 
+# presenting a screen
+bindsym $Alt+Shift+p exec $bin/mirror-screen.sh
+
 
 # Navigation and sway Management
 # -------------------------------
@@ -347,30 +350,6 @@ mode "$mode_monitor" {
 
     # back to normal: Enter or Escape
     bindsym m mode "$mode_mirror_monitor"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-mode "$mode_mirror_monitor" {
-    # FIXME monitor mirroring isn't supported yet in sway
-    # bindsym h       exec $bin/monitorctl.py -l, mode "default"
-    # bindsym Left    exec $bin/monitorctl.py -l, mode "default"
-    # bindsym l       exec $bin/monitorctl.py -r, mode "default"
-    # bindsym Right   exec $bin/monitorctl.py -r, mode "default"
-    # bindsym o       exec $bin/monitorctl.py --off, mode "default"
-    # bindsym Shift+o exec $bin/monitorctl.py --on, mode "default"
-
-    # bindsym 1 exec $bin/monitorctl.py 0, mode "default"
-    # bindsym 2 exec $bin/monitorctl.py 1, mode "default"
-    # bindsym 3 exec $bin/monitorctl.py 2, mode "default"
-    # bindsym 4 exec $bin/monitorctl.py 3, mode "default"
-    # bindsym 5 exec $bin/monitorctl.py 4, mode "default"
-    # bindsym 6 exec $bin/monitorctl.py 5, mode "default"
-    # bindsym 7 exec $bin/monitorctl.py 6, mode "default"
-    # bindsym 8 exec $bin/monitorctl.py 7, mode "default"
-    # bindsym 9 exec $bin/monitorctl.py 8, mode "default"
-
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
