@@ -54,6 +54,10 @@ if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
                 end
             end
         end
+
+        -- set the terminal window title
+        vim.opt.title = true
+        vim.opt.titlestring = "nvim " .. vim.fn.fnamemodify(cwd, ":~")
     end
 
     -- just before quitting vim, save the current session
