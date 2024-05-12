@@ -32,6 +32,9 @@ hide_edge_borders --i3 smart
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 
+# machine-specific config
+include config.local
+
 
 # Autostart
 # ----------
