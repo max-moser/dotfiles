@@ -71,6 +71,9 @@ exec "$bin/gammastep.sh"
 # start an installed polkit agent
 exec "$bin/polkit-agent.sh"
 
+# execute further autostart applications
+exec dex --autostart --environment Sway
+
 
 # Hotkeys for Programs
 # ---------------------

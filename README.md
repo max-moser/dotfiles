@@ -143,6 +143,7 @@ neglected for quite a while now.
 * [`playerctl`](https://github.com/acrisci/playerctl): Audio Player Control
 * [`brightnessctl`](https://github.com/Hummer12007/brightnessctl): Backlight Control
 * [`gammastep`](https://gitlab.com/chinstrap/gammastep): Color Correction
+* [`dex`](https://github.com/jceb/dex): Autostart applications launcher
 
 ### Script Dependencies
 
