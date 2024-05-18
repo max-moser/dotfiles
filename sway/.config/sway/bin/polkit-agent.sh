@@ -20,5 +20,5 @@ for agent in ${agents[@]}; do
 	fi
 done
 
-echo "no agents found." >&2
+notify-send -u critical "No polkit agents found!" "Some applications may not work."
 exit 1
