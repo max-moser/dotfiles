@@ -8,11 +8,13 @@ fi
 
 gnome_schema="org.gnome.desktop.interface"
 gtk_theme="$(grep 'gtk-theme-name' "$config" | cut -d'=' -f2)"
+key_theme="$(grep 'gtk-key-theme' "$config" | cut -d'=' -f2)"
 icon_theme="$(grep 'gtk-icon-theme-name' "$config" | cut -d'=' -f2)"
 cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | cut -d'=' -f2)"
 font_name="$(grep 'gtk-font-name' "$config" | cut -d'=' -f2)"
-gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
-gsettings set "$gnome_schema" icon-theme "$icon_theme"
-gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
-gsettings set "$gnome_schema" font-name "$font_name"
 
+[[ -n ${gtk_theme} ]] && gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
+[[ -n ${key_theme} ]] && gsettings set "$gnome_schema" gtk-key-theme "$key_theme"
+[[ -n ${icon_theme} ]] && gsettings set "$gnome_schema" icon-theme "$icon_theme"
+[[ -n ${cursor_theme} ]] && gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
+[[ -n ${font_name} ]] && gsettings set "$gnome_schema" font-name "$font_name"
