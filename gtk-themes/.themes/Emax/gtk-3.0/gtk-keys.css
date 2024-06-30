@@ -1,0 +1,30 @@
+/*
+* A keybinding set implementing some Emacs-like keybindings.
+*
+* This is mainly useful for quickly "accepting" the suggestion for the next
+* URL part in the browser.
+*
+* To use: `gsettings set org.gnome.desktop.interface gtk-key-theme Emax`
+*/
+
+/* define keybindings for text entry */
+@binding-set gtk-emax-text-entry {
+    /* move one word forwards/backwards */
+    bind "<alt>b" { "move-cursor" (words, -1, 0) };
+    bind "<alt>f" { "move-cursor" (words, 1, 0) };
+
+    /* move to end of paragraph */
+    bind "<ctrl>e" { "move-cursor" (paragraph-ends, 1, 0) };
+
+    /* move to end of paragraph, selecting the text until there */
+    bind "<ctrl><shift>e" { "move-cursor" (paragraph-ends, 1, 1) };
+}
+
+/* configure where to use the above defined keybindings */
+entry {
+    -gtk-key-bindings: gtk-emax-text-entry;
+}
+
+textview {
+    -gtk-key-bindings: gtk-emax-text-entry;
+}
