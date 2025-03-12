@@ -25,6 +25,7 @@
 
 [rebase]
     autoSquash = true
+    updateRefs = true
 
 [interactive]
     diffFilter = delta --color-only
