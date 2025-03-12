@@ -1,0 +1,5 @@
+#line-edit
+^W word-backspace
+
+# use ESC-ESC to abort the line edit, similar to ^C
+\e\e abort
