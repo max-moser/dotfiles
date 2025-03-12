@@ -2,7 +2,12 @@
     s = status
     d = diff
     ds = diff --staged
+    du = diff @{u} HEAD
     co = checkout
+    fa = fetch --all
+    sw = switch
+    yeet = reset @{u}
+    yeet-hard = reset --hard @{u}
 
 [user]
     name = Maximilian Moser
