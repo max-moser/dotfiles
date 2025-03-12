@@ -54,7 +54,7 @@ plugins+=( colorize colored-man-pages )
 plugins+=( gpg-agent ssh-agent )
 plugins+=( encode64 extract universalarchive )
 plugins+=( nvm pyenv )
-plugins+=( fno wttr overlaps unlink )
+plugins+=( fno wttr overlaps unlink venv )
 
 # conditionally loaded plugins
 cmd_exists fzf && plugins+="fzf"
