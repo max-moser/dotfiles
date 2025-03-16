@@ -494,7 +494,7 @@ input type:pointer {
 
 input type:keyboard {
     xkb_layout eu
-    xkb_options caps:escape
+    xkb_options caps:escape_shifted_capslock
 }
 
 output * {
