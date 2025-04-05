@@ -56,7 +56,18 @@ return {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         cmp.setup({
-            enabled = true,
+            enabled = function ()
+                -- disable in 'prompt-buffer' (typically input for jobs)
+                local disabled = (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+
+                -- disable when recording/executing recordings
+                disabled = disabled or (vim.fn.reg_recording() ~= '')
+                disabled = disabled or (vim.fn.reg_executing() ~= '')
+
+                -- disable inside comments
+                disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
+                return not disabled
+            end,
             snippet = {
                 expand = function(args)
                     require("luasnip").lsp_expand(args.body)
