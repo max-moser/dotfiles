@@ -1,0 +1,15 @@
+# https://yazi-rs.github.io/docs/configuration/keymap
+[manager]
+prepend_keymap = [
+    # make it harder to accidentally quit yazi
+    {"on" = "q", "run" = "noop"},
+    {"on" = "Q", "run" = "noop"},
+    {"on" = ["q", "q"], "run" = "quit", "desc" = "Quit the process"},
+    {"on" = ["q", "Q"], "run" = "quit --no-cwd-file", "desc" = "Quit without outputting cwd-file"},
+    # make closing tabs also slightly harder
+    {"on" = "<C-c>", "run" = "noop"},
+    {"on" = ["T", "q"], "run" = "close", "desc" = "Close the current tab"},
+    {"on" = ["<C-c>", "<C-c>"], "run" = "close", "desc" = "Close the current tab"},
+    # jump interactively on "gi"
+    {"on" = ["g", "i"], "run" = "cd --interactive", "desc" = "Jump interactively"},
+]
