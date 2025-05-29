@@ -20,6 +20,29 @@ local function setup_cmp()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
+    -- confirm current autocomplete suggestion, expand or jump in the current snippet,
+    -- or perform the fallback action
+    local function confirm_cmp_or_jump(fallback)
+        if cmp.visible() then
+            -- if a suggestion is currently open, accept it
+            cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
+        elseif luasnip.expand_or_jumpable() then
+            -- if still in a snippet, jump to the next position
+            luasnip.expand_or_jump()
+        else
+            fallback()
+        end
+    end
+
+    -- jump backwards if possible, or perform the fallback action
+    local function jump_backwards(fallback)
+        if luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+        else
+            fallback()
+        end
+    end
+
     cmp.setup({
         enabled = function()
             -- disable in 'prompt-buffer' (typically input for jobs)
@@ -50,26 +73,10 @@ local function setup_cmp()
             ["<C-j>"] = cmp.mapping.scroll_docs(1),
 
             -- allow `Enter` and `Tab` to confirm completion,
-            -- but also use `Tab` and `Shift-Tab` for cycling through snippet spots
+            -- but also use `Tab` (and `Shift-Tab`) for cycling through snippet spots
             ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    -- if a suggestion is currently open, i want to accept it with `Tab`
-                    cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
-                elseif luasnip.expand_or_jumpable() then
-                    -- if i'm still in a snippet, i want to jump to the next position
-                    luasnip.expand_or_jump()
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
+            ["<Tab>"] = cmp.mapping(confirm_cmp_or_jump, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(jump_backwards, { "i", "s" }),
         }),
         completion = {
             completeopt = "menu,menuone,noinsert",
