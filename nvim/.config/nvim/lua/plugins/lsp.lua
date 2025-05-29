@@ -66,11 +66,15 @@ local function setup_cmp()
             -- `Ctrl-Space` to trigger completion menu
             ["<C-Space>"] = cmp.mapping.complete(),
 
+            -- select next/prev item with ^j and ^k
+            ["<C-k>"] = cmp.mapping.select_prev_item(),
+            ["<C-j>"] = cmp.mapping.select_next_item(),
+
             -- scrolling the docs
             ["<C-u>"] = cmp.mapping.scroll_docs(-4),
             ["<C-d>"] = cmp.mapping.scroll_docs(4),
-            ["<C-k>"] = cmp.mapping.scroll_docs(-1),
-            ["<C-j>"] = cmp.mapping.scroll_docs(1),
+            ["<C-S-k>"] = cmp.mapping.scroll_docs(-1),
+            ["<C-S-j>"] = cmp.mapping.scroll_docs(1),
 
             -- allow `Enter` and `Tab` to confirm completion,
             -- but also use `Tab` (and `Shift-Tab`) for cycling through snippet spots
