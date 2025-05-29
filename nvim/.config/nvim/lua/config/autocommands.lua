@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- update folds (and close them) after opening a buffer
 -- https://github.com/nvim-telescope/telescope.nvim/issues/699
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
     desc = "Update folds after opening a file",
     callback = function()
         if vim.opt.foldmethod:get() == "expr" then
@@ -43,4 +43,23 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
             end)
         end
     end,
+})
+
+-- set up some hotkeys that require a running LSP to work
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP setup",
+    callback = function(event)
+        local opts = { buffer = event.buf }
+        local map = function(mode, keys, func, desc)
+            vim.keymap.set(mode, keys, func, { buffer = opts.buffer, desc = "LSP: " .. desc })
+        end
+
+        -- utilize telescope to improve code navigation hotkeys
+        map("n", "gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+        map("n", "gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+        map("i", "<C-S-Space>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help")
+        map("n", "<F2>", "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol")
+        map({ "n", "x" }, "<F3>", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format code")
+        map("n", "<F4>", "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code action")
+    end
 })
