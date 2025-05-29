@@ -82,7 +82,7 @@ return {
                 ["<C-j>"] = cmp.mapping.scroll_docs(1),
 
                 -- allow `Enter` and `Tab` to confirm completion,
-                -- but also use `Tab` and `Shift-Tab` for cycling through suggestions
+                -- but also use `Tab` and `Shift-Tab` for cycling through snippet spots
                 ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
@@ -105,6 +105,7 @@ return {
             }),
             completion = {
                 completeopt = "menu,menuone,noinsert",
+                keyword_length = 2,
             },
             experimental = {
                 ghost_text = false,
