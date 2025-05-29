@@ -1,4 +1,4 @@
-# vim: ft=conf ts=4 expandtab
+# vim: ft=swayconfig ts=4 expandtab
 
 set $Alt Mod1
 set $Win Mod4
