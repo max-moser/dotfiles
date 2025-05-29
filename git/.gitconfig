@@ -4,8 +4,13 @@
     ds = diff --staged
     du = diff @{u} HEAD
     co = checkout
+    cob = checkout -b
+    cp = cherry-pick
     fa = fetch --all
     sw = switch
+    amend = commit --amend
+    fixup = commit --fixup
+    squash = commit --squash
     yeet = reset @{u}
     yeet-hard = reset --hard @{u}
 
