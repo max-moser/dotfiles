@@ -3,7 +3,6 @@ return {
     branch = "v3.x",
     dependencies = {
         { "neovim/nvim-lspconfig" },
-        { "folke/neodev.nvim" },
 
         -- mason for installing new language servers
         {
@@ -34,8 +33,6 @@ return {
             map("i", "<C-S-Space>", vim.lsp.buf.signature_help, "Signature Help")
         end)
 
-        -- `neodev` takes care of setting up the Lua LS for neovim, needs to be set up before `lspconfig`
-        require("neodev").setup({})
         local lsp_zero_server = require("lsp-zero.server")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
