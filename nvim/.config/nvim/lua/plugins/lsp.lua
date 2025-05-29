@@ -61,8 +61,9 @@ return {
                 disabled = disabled or (vim.fn.reg_recording() ~= '')
                 disabled = disabled or (vim.fn.reg_executing() ~= '')
 
-                -- disable inside comments
+                -- disable inside comments & strings
                 disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
+                disabled = disabled or require('cmp.config.context').in_treesitter_capture('string_content')
                 return not disabled
             end,
             snippet = {
