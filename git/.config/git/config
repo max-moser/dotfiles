@@ -64,3 +64,5 @@
 
 [include]
     path = delta
+    path = config.local
+    path = ~/.gitconfig.local
