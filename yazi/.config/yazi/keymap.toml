@@ -13,3 +13,10 @@ prepend_keymap = [
     # jump interactively on "gi"
     {"on" = ["g", "i"], "run" = "cd --interactive", "desc" = "Jump interactively"},
 ]
+
+[cmp]
+prepend_keymap = [
+    # allow navigation in the completion input with ^j and ^k
+    {"on" = "<C-k>", "run" = "arrow prev", "desc" = "Select previous option"},
+    {"on" = "<C-j>", "run" = "arrow next", "desc" = "Select next option"},
+]
