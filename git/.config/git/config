@@ -1,0 +1,66 @@
+[alias]
+    s = status
+    d = diff
+    ds = diff --staged
+    du = diff @{u} HEAD
+    co = checkout
+    cob = checkout -b
+    cp = cherry-pick
+    fa = fetch --all
+    sw = switch
+    amend = commit --amend
+    fixup = commit --fixup
+    squash = commit --squash
+    yeet = reset @{u}
+    yeet-hard = reset --hard @{u}
+
+[user]
+    name = Maximilian Moser
+    email = maximilian.moser@tuwien.ac.at
+
+[core]
+    pager = delta
+
+[status]
+    branch = true
+    showStash = true
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = -taggerdate
+
+[diff]
+    renames = copies
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
+
+[commit]
+    verbose = true
+
+[push]
+    autoSetupRemote = true
+
+[pull]
+    rebase = true
+
+[merge]
+    conflictstyle = diff3
+
+[rebase]
+    autoStash = true
+    autoSquash = true
+    updateRefs = true
+    missingCommitsCheck = warn
+
+[interactive]
+    singleKey = true
+    diffFilter = delta --color-only
+    side-by-side = true
+
+[rerere]
+    enabled = true
+
+[include]
+    path = delta

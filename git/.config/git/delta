@@ -1,52 +1,4 @@
-[alias]
-    s = status
-    d = diff
-    ds = diff --staged
-    du = diff @{u} HEAD
-    co = checkout
-    cob = checkout -b
-    cp = cherry-pick
-    fa = fetch --all
-    sw = switch
-    amend = commit --amend
-    fixup = commit --fixup
-    squash = commit --squash
-    yeet = reset @{u}
-    yeet-hard = reset --hard @{u}
-
-[user]
-    name = Maximilian Moser
-    email = maximilian.moser@tuwien.ac.at
-
-[core]
-    pager = delta
-
-[status]
-    branch = true
-    showStash = true
-
-[diff]
-    renames = copies
-    colorMoved = default
-    colorMovedWS = allow-indentation-change
-
-[commit]
-    verbose = true
-
-[merge]
-    conflictstyle = diff3
-
-[rebase]
-    autoStash = true
-    autoSquash = true
-    updateRefs = true
-    missingCommitsCheck = warn
-
-[interactive]
-    singleKey = true
-    diffFilter = delta --color-only
-    side-by-side = true
-
+# vim: ft=gitconfig
 [delta]
     navigate = false
     features = max
@@ -106,18 +58,3 @@
         bold blue => syntax max.dark-violet, \
         bold cyan => syntax max.dark-cyan, \
         bold yellow => syntax max.dark-green-3
-
-[push]
-    autoSetupRemote = true
-
-[pull]
-    rebase = true
-
-[rerere]
-    enabled = true
-
-[branch]
-    sort = -committerdate
-
-[tag]
-    sort = -taggerdate
