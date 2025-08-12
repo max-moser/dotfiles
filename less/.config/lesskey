@@ -3,3 +3,9 @@
 
 # use ESC-ESC to abort the line edit, similar to ^C
 \e\e abort
+
+#command
+h left-scroll
+l right-scroll
+^h no-scroll
+^l end-scroll
