@@ -2,9 +2,10 @@
 # the prompt char is either # or $, depending on whether the user is root or not
 #
 # user@host ~ $
-
-# PROMPT='%(?.$fg_bold[green].$fg_bold[red])%n@%m %{$fg_bold[blue]%}%(!.%1~.%~) $(git_prompt_info)%_$(prompt_char)%{$reset_color%} '
-PROMPT='%(?.%{$fg_bold[green]%}.%{$fg_bold[red]%})%n@%m %{$fg_bold[blue]%}%(!.%1~.%~) $(git_prompt_info)%(!.#.$)%{$reset_color%} '
+#
+# available "simple prompt escapes" are listed in `man 1 zshmisc`
+# they can be tested with the builtin `print -P ...`
+PROMPT='%B%(?.%F{green}.%F{red})%n@%m %F{blue}%(!.%1~.%~) $(git_prompt_info)%(!.#.$)%f%b '
 RPROMPT='[%*]'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
