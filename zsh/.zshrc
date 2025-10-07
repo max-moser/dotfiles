@@ -1,5 +1,5 @@
 # add `~/.local/bin` to the path
-path+=( "$HOME/.local/bin/" )
+path+=( "$HOME/.local/bin" )
 
 # function for checking if a command exists
 function cmd_exists() {
