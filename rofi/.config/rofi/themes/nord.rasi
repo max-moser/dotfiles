@@ -128,6 +128,8 @@ inputbar {
 
 prompt {
     padding: 0.5em;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
     text-color: @foregroundcolor;
     background-color: @backgroundcoloralternate;
     border: 0 1 0 0;
@@ -136,6 +138,8 @@ prompt {
 entry {
     text-color: @foregroundcolor;
     padding: 0.5em;
+    vertical-align: 0.5;
+    horizontal-align: 0;
 }
 
 textbox-prompt-sep {
@@ -143,4 +147,8 @@ textbox-prompt-sep {
     str: "";
     text-color: inherit;
     margin: 0 0.3em 0 0;
+}
+
+overlay {
+    vertical-align: 0.5;
 }
