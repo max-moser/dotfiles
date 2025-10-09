@@ -92,3 +92,17 @@ unsetopt beep
 
 bindkey '^j' down-line-or-history
 bindkey '^k' up-line-or-history
+
+# foot(1) integration:
+# emit "OSC-133;A" before each command, to enable jumping between prompts in foot
+# similarly, emit "OSC-133;C" and "OSC-133;D" around output of commands to enable its piping in foot
+function precmd {
+    print -Pn "\e]133;A\e\\"
+    if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+    fi
+}
+
+function preexec {
+    print -n "\e]133;C\e\\"
+}
