@@ -35,6 +35,9 @@ map("x", "<", "<gv")
 -- remove highlighting of search results
 map("n", "<Leader><Esc>", "<Cmd>nohlsearch<CR>")
 
+-- toggle cursorcolumn
+map("n", "<Leader>h", "<Cmd>set cursorcolumn!<CR>")
+
 -- open up the file explorer (netrw)
 map("n", "<Leader>fe", "<Cmd>Explore<CR>")
 
