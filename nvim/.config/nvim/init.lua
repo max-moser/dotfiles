@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 -- load the plugins from "lua/plugins/*.lua"
-require("lazy").setup("plugins")
+require("lazy").setup({ spec = "plugins", ui = { border = "double" } })
 
 -- load the settings and keymaps
 require("config.settings")

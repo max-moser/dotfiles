@@ -99,6 +99,9 @@ opt.timeoutlen = 750
 -- the key for opening the command-line window (history) in cmdline mode
 opt.cedit = "<C-h>"
 
+-- set a border around windows (e.g. S-K help)
+opt.winborder = "double"
+
 -- simple tab names without the file paths in it
 function SimpleTabline()
     local tabline = ""
