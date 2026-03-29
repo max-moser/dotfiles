@@ -45,15 +45,15 @@ local function setup_cmp()
     cmp.setup({
         enabled = function()
             -- disable in 'prompt-buffer' (typically input for jobs)
-            local disabled = (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+            local disabled = (vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt")
 
             -- disable when recording/executing recordings
-            disabled = disabled or (vim.fn.reg_recording() ~= '')
-            disabled = disabled or (vim.fn.reg_executing() ~= '')
+            disabled = disabled or (vim.fn.reg_recording() ~= "")
+            disabled = disabled or (vim.fn.reg_executing() ~= "")
 
             -- disable inside comments & strings
-            disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
-            disabled = disabled or require('cmp.config.context').in_treesitter_capture('string_content')
+            disabled = disabled or require("cmp.config.context").in_treesitter_capture("comment")
+            disabled = disabled or require("cmp.config.context").in_treesitter_capture("string_content")
             return not disabled
         end,
         snippet = {
@@ -93,14 +93,14 @@ local function setup_cmp()
             -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             { name = "nvim_lsp" },
             { name = "luasnip" },
-        }
+        },
     })
 end
 
 return {
     -- default LSP configurations
     {
-        "neovim/nvim-lspconfig"
+        "neovim/nvim-lspconfig",
     },
 
     -- mason for installing new language servers
@@ -121,7 +121,7 @@ return {
         init = setup_cmp,
     },
     {
-        "hrsh7th/cmp-nvim-lsp"
+        "hrsh7th/cmp-nvim-lsp",
     },
     {
         "L3MON4D3/LuaSnip",

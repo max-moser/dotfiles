@@ -61,5 +61,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "<F2>", "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol")
         map({ "n", "x" }, "<F3>", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format code")
         map("n", "<F4>", "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code action")
-    end
+    end,
 })
