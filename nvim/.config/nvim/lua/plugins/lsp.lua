@@ -7,10 +7,9 @@ local function setup_mason()
             -- if we want specific setup logic for individual language servers, we can register
             -- a function under the server's name here, e.g. `lua_ls = function() ... end,`
             function(lsp_name)
-                -- next to capabilities, we could provide LSP-specific settings
-                require("lspconfig")[lsp_name].setup({
-                    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-                })
+                -- next to the default capabilities, we could provide LSP-specific settings
+                local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                vim.lsp.config(lsp_name, capabilities)
             end,
         },
     })
@@ -106,14 +105,14 @@ return {
 
     -- mason for installing new language servers
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         build = function()
             pcall(vim.cmd, "MasonUpdate")
         end,
         init = setup_mason,
     },
     {
-        "williamboman/mason-lspconfig.nvim"
+        "mason-org/mason-lspconfig.nvim",
     },
 
     -- autocompletion
