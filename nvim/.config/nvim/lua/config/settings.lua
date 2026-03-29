@@ -150,6 +150,9 @@ opt.foldmethod = "expr"
 opt.foldexpr = "0"
 opt.foldenable = false
 
+-- display diagnostics (if available) in virtual lines below the currently selected line
+vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true } })
+
 -- configuration for neovide
 if vim.g.neovide then
     opt.title = true
