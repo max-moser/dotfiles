@@ -3,15 +3,17 @@ local function setup_mason()
     require("mason").setup({})
     require("mason-lspconfig").setup({
         ensure_installed = {},
-        handlers = {
-            -- if we want specific setup logic for individual language servers, we can register
-            -- a function under the server's name here, e.g. `lua_ls = function() ... end,`
-            function(lsp_name)
-                -- next to the default capabilities, we could provide LSP-specific settings
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
-                vim.lsp.config(lsp_name, capabilities)
-            end,
-        },
+        -- handlers = {
+        --     -- if we want specific setup logic for individual language servers, we can register
+        --     -- a function under the server's name here, e.g. `lua_ls = function() ... end,`
+        --     function(lsp_name)
+        --         -- next to the default capabilities, we could provide LSP-specific settings
+        --         -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        --         --
+        --         local capabilities = vim.lsp.protocol.make_client_capabilities()
+        --         vim.lsp.config(lsp_name, capabilities)
+        --     end,
+        -- },
     })
 end
 
