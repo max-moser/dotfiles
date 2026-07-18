@@ -31,6 +31,9 @@
 [tag]
     sort = -taggerdate
 
+[blame]
+    ignoreRevsFile = :(optional).git-blame-ignore-revs
+
 [diff]
     renames = copies
     colorMoved = default
