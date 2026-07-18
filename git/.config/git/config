@@ -19,7 +19,7 @@
     email = maximilian.moser@tuwien.ac.at
 
 [core]
-    pager = delta
+    pager = "delta || ${PAGER:-less}"
 
 [status]
     branch = true
@@ -56,7 +56,7 @@
 
 [interactive]
     singleKey = true
-    diffFilter = delta --color-only
+    diffFilter = "delta --color-only || ${PAGER:-less}"
     side-by-side = true
 
 [rerere]
