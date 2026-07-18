@@ -10,7 +10,7 @@
     sw = switch
     amend = commit --amend
     fixup = commit --fixup
-    squash = commit --squash
+    squash = commit --no-edit --squash
     yeet = reset @{u}
     yeet-hard = reset --hard @{u}
 
