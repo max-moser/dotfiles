@@ -11,6 +11,9 @@
     amend = commit --amend
     fixup = commit --fixup
     squash = commit --no-edit --squash
+    irebase = rebase --interactive
+    unstage = restore --staged
+    toss = restore --staged --worktree
     yeet = reset @{u}
     yeet-hard = reset --hard @{u}
 
