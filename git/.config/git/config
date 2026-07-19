@@ -39,7 +39,7 @@
 
 [diff]
     renames = copies
-    colorMoved = default
+    colorMoved = dimmed-zebra
     colorMovedWS = allow-indentation-change
 
 [commit]
@@ -67,6 +67,15 @@
 
 [rerere]
     enabled = true
+
+[color "diff"]
+    # colors used by `diff.colorMoved = zebra`
+    # these are the default values, but set again here for reference
+    # (they get mapped in the delta theme)
+    oldMoved = "bold magenta"  # note: this gets picked up as "bold purple" by delta
+    oldMovedAlternative = "bold blue"
+    newMoved = "bold cyan"
+    newMovedAlternative = "bold yellow"
 
 [include]
     path = delta

@@ -5,16 +5,31 @@
 
 [delta "max"]
     # based on the themes "hoopoe" and "zebra-dark" by https://github.com/dandavison
-    # color definitions
+    #
+    # basic diff color definitions
+    # "diff-{green,red}" are taken from "zebra-dark", and have been remixed
+    # with the tool `pastel` into different shades (e.g. `pastel lighten 0.1 ...`)
+    #
+    diff-green = "#0e2f19"
+    diff-green-emph = "#174525"
+    diff-red = "#330f0f"
+    diff-red-emph = "#5a1b1b"
+
+    # colors for `diff.colorMoved = zebra`
+    # "{new,old}-moved" are lightened variants of "diff-{green,red}"
+    # "{new,old}-moved-alt" are them mixed with "cornflowerblue" and "darkkhaki"
+    #                   (which roughly are the nord interpretation of "blue" and "yellow")
+    old-moved = "#471515"
+    old-moved-alt = "#5a4e75"
+    new-moved = "#144323"
+    new-moved-alt = "#627040"
+    uninteresting = "#3f4247"
+
+    # other colors
+    red = "red"
+    green = "green"
+    blue = "blue"
     lime-green = "#078e00"
-    dark-green = "#0e2f19"
-    dark-green-2 = "#174525"
-    dark-green-3 = "#222f14"
-    dark-red = "#330f0f"
-    dark-red-2 = "#4f1917"
-    dark-pink = "#330f29"
-    dark-violet = "#271344"
-    dark-cyan = "#0d3531"
     grey = "#aaaaaa"
 
     # theme definition
@@ -24,37 +39,39 @@
 
     # line numbers
     line-numbers = true
-    line-numbers-zero-style = grey
-    line-numbers-minus-style = red
-    line-numbers-plus-style = green
+    line-numbers-zero-style = max.grey
+    line-numbers-minus-style = max.red
+    line-numbers-plus-style = max.green
 
     # diff highlighting
-    minus-style = syntax max.dark-red
-    minus-emph-style = syntax max.dark-red-2
+    minus-style = syntax max.diff-red
+    minus-emph-style = bold syntax max.diff-red-emph
     minus-non-emph-style = minus-style
     minus-empty-line-marker-style = minus-style
-    plus-style = syntax max.dark-green
-    plus-emph-style = syntax max.dark-green-2
+    plus-style = syntax max.diff-green
+    plus-emph-style = bold syntax max.diff-green-emph
     plus-non-emph-style = plus-style
     plus-empty-line-marker-style = plus-style
 
     # styling of the hunks
     hunk-label = >
     hunk-header-style = file line-number syntax
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = blue
+    hunk-header-decoration-style = max.blue box
+    hunk-header-file-style = max.blue
     hunk-header-line-number-style = max.lime-green
 
     # further styling
     commit-style = raw
-    commit-decoration-style = blue ul ol  # {under,over}line commit messages in 'git log'
-    file-style = omit                     # hide file name headers in 'git diff'
-    zero-style = syntax normal            # style for unchanged lines
+    commit-decoration-style = max.blue ul ol  # {under,over}line commit messages in 'git log'
+    file-style = omit                         # hide file name headers in 'git diff'
+    zero-style = syntax normal                # style for unchanged lines
     whitespace-error-style = max.grey
 
-    # mapping styles from raw input
+    # map colors from `git diff` colorMoved output to this theme:
+    # https://dandavison.github.io/delta/color-moved-support.html
     map-styles = \
-        bold purple => syntax max.dark-pink, \
-        bold blue => syntax max.dark-violet, \
-        bold cyan => syntax max.dark-cyan, \
-        bold yellow => syntax max.dark-green-3
+        bold purple => syntax max.old-moved, \
+        bold blue => syntax max.old-moved-alt, \
+        bold cyan => syntax max.new-moved, \
+        bold yellow => syntax max.new-moved-alt, \
+        dim normal => syntax max.uninteresting
