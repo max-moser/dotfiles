@@ -38,6 +38,7 @@
     ignoreRevsFile = :(optional).git-blame-ignore-revs
 
 [diff]
+    algorithm = histogram
     renames = copies
     colorMoved = dimmed-zebra
     colorMovedWS = allow-indentation-change
