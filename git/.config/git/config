@@ -6,6 +6,9 @@
     co = checkout
     cob = checkout -b
     cp = cherry-pick
+    cpc = cherry-pick --continue
+    rb = rebase
+    rbc = rebase --continue
     fa = fetch --all
     sw = switch
     amend = commit --amend
