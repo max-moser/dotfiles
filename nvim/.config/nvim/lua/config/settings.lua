@@ -102,6 +102,9 @@ opt.cedit = "<C-h>"
 -- set a border around windows (e.g. S-K help)
 opt.winborder = "double"
 
+-- enable project-local configuration files
+opt.exrc = true
+
 -- simple tab names without the file paths in it
 function SimpleTabline()
     local tabline = ""
