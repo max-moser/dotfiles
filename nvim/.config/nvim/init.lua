@@ -22,6 +22,7 @@ require("lazy").setup({ spec = "plugins", ui = { border = "double" } })
 require("config.settings")
 require("config.keymaps")
 require("config.autocommands")
+require("config.commands")
 
 -- for projects: if the only argument to vim is a directory, let's go there
 local args = vim.fn.argv()
