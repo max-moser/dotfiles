@@ -55,6 +55,9 @@ opt.shiftwidth = 0
 opt.scrolloff = 5
 opt.sidescrolloff = 5
 
+-- always show the signcolumn, to prevent layout shift with LSPs
+opt.signcolumn = "yes"
+
 -- white 'ruler' line at the bottom of the screen
 opt.ruler = true
 
