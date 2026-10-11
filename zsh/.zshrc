@@ -106,3 +106,16 @@ function precmd {
 function preexec {
     print -n "\e]133;C\e\\"
 }
+
+# accept job number with or without leading % for `fg`, `bg`, and `disown`
+function fg () {
+    builtin fg "%${1#%}"
+}
+
+function bg () {
+    builtin bg "%${1#%}"
+}
+
+function disown () {
+    builtin disown "%${1#%}"
+}
