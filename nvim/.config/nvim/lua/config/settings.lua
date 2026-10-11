@@ -75,6 +75,9 @@ opt.autoread = true
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 
+-- render borders around windows (e.g. ^K)
+opt.winborder = "double"
+
 -- make the cmd line one line high
 opt.cmdheight = 1
 
