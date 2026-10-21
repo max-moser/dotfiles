@@ -111,6 +111,9 @@ opt.winborder = "double"
 -- enable project-local configuration files
 opt.exrc = true
 
+-- hide concealed text (e.g. link definitions in markdown) when not hovered
+opt.conceallevel = 2
+
 -- simple tab names without the file paths in it
 function SimpleTabline()
     local tabline = ""
