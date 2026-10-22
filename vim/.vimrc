@@ -56,8 +56,8 @@ set cursorline
 
 " set display and handling of tab stops
 set expandtab
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set shiftwidth=0
 
 " keep a padding of characters/lines at the sides, to provide context

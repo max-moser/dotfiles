@@ -47,8 +47,8 @@ opt.cursorline = true
 
 -- set display and handling of tab stops
 opt.expandtab = true
-opt.tabstop = 4
-opt.softtabstop = 4
+opt.tabstop = 2
+opt.softtabstop = 2
 opt.shiftwidth = 0
 
 -- keep a padding of characters/lines at the sides, to provide context
