@@ -3,7 +3,7 @@ path+=( "$HOME/.local/bin" )
 
 # function for checking if a command exists
 function cmd_exists() {
-    type $1 &> /dev/null
+    [[ ${+commands[$1]} -eq 1 ]]
 }
 
 # path to your oh-my-zsh installation
