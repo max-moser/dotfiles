@@ -21,9 +21,6 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent lifetime 2h
 
-# make completion not distinguish between "-" and "_"
-HYPHEN_INSENSITIVE="true"
-
 # disable command auto-correction
 ENABLE_CORRECTION="false"
 
@@ -119,3 +116,12 @@ function bg () {
 function disown () {
     builtin disown "%${1#%}"
 }
+
+# completion: (1) try to simply complete the word (2) run the matchers below (3) complete approximately, allowing for some errors
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)'
+
+# case-insensitive completion
+# (1) case-insensitive (2) search to the right (3) search to the left and to the right
+# note: making dashes and underscores interchangeable in 'm:*' causes some extra dashes being introduced sometimes
+zstyle ':completion:*' matcher-list 'm:{[:upper:][:lower:]}={[:lower:][:upper:]}' '+r:|=*' '+l:|=* r:|=*'
