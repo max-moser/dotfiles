@@ -121,3 +121,16 @@ zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX + $#SUFF
 # (1) case-insensitive (2) search to the right (3) search to the left and to the right
 # note: making dashes and underscores interchangeable in 'm:*' causes some extra dashes being introduced sometimes
 zstyle ':completion:*' matcher-list 'm:{[:upper:][:lower:]}={[:lower:][:upper:]}' '+r:|=*' '+l:|=* r:|=*'
+
+# show suggestions in groups, with a formatted header
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' format '%B%F{magenta}[ %d ]%f%b'
+
+# hotkeys for the completion menu (see `man zshmodules`: `zsh/complist`)
+# ctrl-{h,j,k,l} for navigation, ctrl-{n,p} for jumping between groups
+bindkey -M menuselect '^h' backward-char
+bindkey -M menuselect '^j' down-history
+bindkey -M menuselect '^k' up-history
+bindkey -M menuselect '^l' forward-char
+bindkey -M menuselect '^n' vi-forward-blank-word
+bindkey -M menuselect '^p' vi-backward-blank-word
