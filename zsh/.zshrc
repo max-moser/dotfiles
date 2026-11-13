@@ -37,9 +37,6 @@ ZSH_COLORIZE_STYLE="monokai"
 # disable auto-setting of $TERM by the `tmux` plugin
 ZSH_TMUX_FIXTERM="false"
 
-# hide any warnings regarding configuration from the `pyenv` plugin
-ZSH_PYENV_QUIET="true"
-
 # determine where nvm lives
 if [[ ! -d $HOME/.nvm  && -f /usr/share/nvm/init-nvm.sh ]]; then
     export NVM_DIR=/usr/share/nvm
@@ -50,7 +47,6 @@ plugins=( git emoji urltools )
 plugins+=( colorize colored-man-pages )
 plugins+=( gpg-agent ssh-agent )
 plugins+=( encode64 extract universalarchive )
-plugins+=( nvm pyenv )
 plugins+=( fno wttr overlaps unlink venv yazi )
 
 # conditionally loaded plugins
